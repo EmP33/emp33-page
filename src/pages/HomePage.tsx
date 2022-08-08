@@ -9,6 +9,11 @@ import WorksSection from "../components/WorksSection/WorksSection";
 import ResourcesSection from "../components/ResourcesSection/ResourcesSection";
 import Aboutme from "../components/Aboutme/Aboutme";
 import Contact from "../components/Contact/Contact";
+// Icons
+import { IoLogoInstagram } from "react-icons/io5";
+import { FiGithub } from "react-icons/fi";
+import { FaFacebookF } from "react-icons/fa";
+import { AiOutlineCodepen } from "react-icons/ai";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -31,7 +36,7 @@ const Header = styled.header`
     height: 350px;
     content: "";
     border-radius: 54% 46% 42% 58%/60% 58% 42% 40%;
-    background-image: linear-gradient(45deg, #ab49de, #5b41f2);
+    background-image: linear-gradient(45deg, #ab49de, var(--color-secondary));
     animation: vawe 5s linear infinite;
   }
   &::before {
@@ -53,7 +58,7 @@ const Header = styled.header`
   & > .dots span {
     position: absolute;
     border-radius: 50%;
-    background-image: linear-gradient(45deg, #ab49de, #5b41f2);
+    background-image: linear-gradient(45deg, #ab49de, var(--color-secondary));
     border-radius: 38% 62% 55% 45%/32% 53% 47% 68%;
     animation: vawe 7s linear infinite;
   }
@@ -138,19 +143,101 @@ const AnimatedHeading = styled.h2`
 
   & > span {
     display: inline-flex;
-    color: #5b41f2;
+    color: var(--color-secondary);
 
     &:nth-child(even) {
       overflow: hidden;
       transition: ease-in-out 0.5s;
       color: #fff;
-      border-bottom: 8px solid #5b41f2;
+      border-bottom: 8px solid var(--color-secondary);
       letter-spacing: -1em;
 
       @media only screen and (max-width: 900px) {
         letter-spacing: 0;
       }
     }
+  }
+`;
+
+const SocialList = styled.ul`
+  width: 50px;
+  height: 200px;
+  position: fixed;
+  display: flex;
+  left: 2%;
+  bottom: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 220px;
+
+  &::after {
+    content: "";
+    width: 1px;
+    height: 140px;
+    background: #808080;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & > li {
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+    & > a {
+      color: #808080;
+      font-size: 22px;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--color-secondary);
+      }
+    }
+  }
+`;
+
+const EmailWrapper = styled.div`
+  width: 50px;
+  height: 200px;
+  position: fixed;
+  display: flex;
+  left: 2%;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding-top: 220px;
+
+  & > p {
+    color: #808080;
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      color: var(--color-secondary);
+      transform: rotate(-90deg) translateX(-2px);
+    }
+  }
+
+  &::before {
+    content: "";
+    width: 1px;
+    height: 100px;
+    background: #808080;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
@@ -239,10 +326,45 @@ const HomePage = () => {
           </Grid>
         </Grid>
       </Header>
-      {/* <WorksSection /> */}
-      <ResourcesSection />
-      <Aboutme />
-      <Contact />
+      <Box sx={{ width: "95%", marginLeft: "auto" }}>
+        {/* <WorksSection /> */}
+        <ResourcesSection />
+        <Aboutme />
+        <Contact />
+      </Box>
+      <SocialList>
+        <li>
+          <a href="https://github.com/EmP33" target="_blank" rel="noreferrer">
+            <FiGithub />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/marek_p1/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <IoLogoInstagram />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.facebook.com/marekpur2/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaFacebookF />
+          </a>
+        </li>
+        <li>
+          <a href="https://codepen.io/endipl2" target="_blank" rel="noreferrer">
+            <AiOutlineCodepen />
+          </a>
+        </li>
+      </SocialList>
+      <EmailWrapper>
+        <p>purwinmarek16@gmail.com</p>
+      </EmailWrapper>
     </Container>
   );
 };

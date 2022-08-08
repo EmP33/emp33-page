@@ -116,7 +116,7 @@ const Aboutme = () => {
             fontSize: "18px",
           }}
         >
-          <h2 style={{ color: "#ab49de", fontSize: "40px" }}>
+          <h2 style={{ color: "#ab49de", fontSize: "40px", fontWeight: 300 }}>
             Something about me
           </h2>
           <p>

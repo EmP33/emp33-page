@@ -23,6 +23,7 @@ const Resource: React.FC<Props> = ({ resource }) => {
           color: "#fff",
           height: "100%",
           width: "100%",
+          pointerEvent: "none",
           borderLeft:
             resource.category === "Javascript"
               ? "4px solid #f0db4f"
@@ -35,7 +36,7 @@ const Resource: React.FC<Props> = ({ resource }) => {
               : resource.category === "Logo"
               ? "4px solid #FF1E00"
               : resource.category === "Database"
-              ? "4px solid #002B5B"
+              ? "4px solid #FF1E00"
               : resource.category === "Hosting"
               ? "4px solid #100720"
               : resource.category === "Tools"
@@ -62,7 +63,7 @@ const Resource: React.FC<Props> = ({ resource }) => {
                 : resource.category === "Logo"
                 ? "-6px 0px 4px 0px #FF1E00"
                 : resource.category === "Database"
-                ? "-6px 0px 4px 0px #002B5B"
+                ? "-6px 0px 4px 0px #FF1E00"
                 : resource.category === "Hosting"
                 ? "-6px 0px 4px 0px #100720"
                 : resource.category === "Tools"
@@ -93,7 +94,7 @@ const Resource: React.FC<Props> = ({ resource }) => {
                 : resource.category === "Logo"
                 ? "#FF1E00"
                 : resource.category === "Database"
-                ? "#002B5B"
+                ? "#FF1E00"
                 : resource.category === "Hosting"
                 ? "#100720"
                 : resource.category === "Tools"

@@ -5,6 +5,8 @@ const GlobalStyle = createGlobalStyle`
         --color-primary-light: #293040;
         --color-primary: #222733;
         --color-primary-dark: #20242C;
+
+        --color-secondary: #5b41f2;
     }
 
     body {
@@ -14,7 +16,23 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Open Sans', sans-serif;
         background: var(--color-primary);
         scroll-behavior: smooth;
+        user-select:none;
+      
     }
+
+    /* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8892b0; 
+  border-radius: 10px;
+}
+
+
     
     *{
         box-sizing: border-box;

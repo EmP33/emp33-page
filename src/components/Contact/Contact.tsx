@@ -1,21 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 // Components
-import { Button, Grid, Box } from "@mui/material";
+import { Button, Grid, Box, Typography } from "@mui/material";
 // Images
 import { map } from "../../assets";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
-
-  @media only screen and (max-width: 900px) {
-    height: 200vh;
-  }
-  @media only screen and (max-width: 600px) {
-    height: 250vh;
-  }
+  padding-bottom: 30px;
 
   & > article {
     color: #fff;
@@ -184,8 +178,22 @@ const Contact = () => {
             </ul>
           </ContactForm>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <img src={map} alt="mapa" style={{ objectFit: "contain" }} />
+        <Grid item xs={12} md={6} sx={{ postion: "relative" }}>
+          <Box
+            sx={{
+              position: "absolute",
+              background: "var(--color-primary-dark)",
+              color: "#fff",
+              padding: 2,
+              right: 10,
+              marginTop: 3,
+            }}
+          >
+            <Typography variant="body1">Marek Purwin</Typography>
+            <Typography variant="body1">POLAND</Typography>
+            <Typography variant="body1">purwinmarek16@gmail.com</Typography>
+          </Box>
+          <img src={map} alt="mapa" style={{ pointerEvents: "none" }} />
         </Grid>
       </Grid>
     </Container>
