@@ -1,6 +1,7 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Link } from "react-router-dom";
 // Styles
 import { NavContainer, IconButton } from "./Appbar.styles";
 // Icons
@@ -18,10 +19,18 @@ const Appbar = () => {
         </li>
         {matches && (
           <>
-            <li>Home</li>
-            <li>Works</li>
-            <li>Resources</li>
-            <li>About</li>
+            <Link to="#resource">
+              <li>Home</li>
+            </Link>
+            <Link to="#works">
+              <li>Works</li>
+            </Link>
+            <Link to="#resource">
+              <li>Resources</li>
+            </Link>
+            <Link to="#about">
+              <li>About</li>
+            </Link>
           </>
         )}
       </ul>

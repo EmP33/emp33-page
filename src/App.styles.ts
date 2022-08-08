@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
         color:var(--color-white);
         font-family: 'Open Sans', sans-serif;
         background: var(--color-primary);
+        scroll-behavior: smooth;
     }
     
     *{

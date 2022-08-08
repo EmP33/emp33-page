@@ -10,7 +10,7 @@ import { room } from "../../assets";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   grid-template-rows: max-content 1fr;
   padding: 0 64px 0 64px;
@@ -22,15 +22,6 @@ const Container = styled.div`
 
   @media only screen and (max-width: 1200px) {
     padding: 0 16px 0 16px;
-    height: 150vh;
-  }
-  @media only screen and (max-width: 500px) {
-    padding: 0 16px 0 16px;
-    height: 160vh;
-  }
-  @media only screen and (max-width: 400px) {
-    padding: 0 16px 0 16px;
-    height: 175vh;
   }
 
   & > article {
@@ -99,7 +90,7 @@ const Aboutme = () => {
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <Container>
+    <Container id="about">
       <article>
         <div>
           <h2>About me</h2>

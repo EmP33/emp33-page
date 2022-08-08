@@ -101,7 +101,7 @@ const ResourcesSection = () => {
   }, [resources]);
 
   return (
-    <Container>
+    <Container id="resource">
       <article>
         <div>
           <h2>Resources</h2>

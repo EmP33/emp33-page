@@ -220,11 +220,11 @@ const HomePage = () => {
             gridRowGap: 25,
           }}
         >
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={5}>
             <Box
               sx={{
                 zIndex: 11,
-                width: { xs: 150, sm: 150, lg: 200 },
+                width: { xs: 150, sm: 150, md: 250, lg: 300, xl: 400 },
                 background: "var(--color-primary-light)",
                 borderRadius: "50%",
                 margin: "0 auto",
@@ -234,7 +234,7 @@ const HomePage = () => {
               <img src={avatar} alt="avatar" style={{ width: "100%" }} />
             </Box>
           </Grid>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={7}>
             <CodeBlock />
           </Grid>
         </Grid>

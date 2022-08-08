@@ -18,8 +18,7 @@ export const NavContainer = styled.nav`
     justify-content: center;
     padding: 1rem;
     margin: 0;
-
-    & > li {
+    & li {
       list-style: none;
       padding: 0.5rem;
       font-size: 18px;
@@ -28,6 +27,10 @@ export const NavContainer = styled.nav`
         margin: 0 1rem 0 0;
         font-size: 22px;
       }
+    }
+    & > a {
+      text-decoration: none;
+      color: #fff;
     }
   }
 
