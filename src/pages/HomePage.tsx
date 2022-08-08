@@ -18,7 +18,7 @@ const Container = styled.div`
 
 const Header = styled.header`
   width: 100%;
-  height: 90vh;
+  height: 95vh;
   color: #fff;
   text-align: center;
   overflow: hidden;
@@ -146,6 +146,10 @@ const AnimatedHeading = styled.h2`
       color: #fff;
       border-bottom: 8px solid #5b41f2;
       letter-spacing: -1em;
+
+      @media only screen and (max-width: 900px) {
+        letter-spacing: 0;
+      }
     }
   }
 `;
@@ -220,11 +224,11 @@ const HomePage = () => {
             <Box
               sx={{
                 zIndex: 11,
-                width: { xs: 250, sm: 250, lg: 350 },
+                width: { xs: 150, sm: 150, lg: 200 },
                 background: "var(--color-primary-light)",
                 borderRadius: "50%",
                 margin: "0 auto",
-                mt: 2,
+                mt: 5,
               }}
             >
               <img src={avatar} alt="avatar" style={{ width: "100%" }} />
@@ -235,7 +239,7 @@ const HomePage = () => {
           </Grid>
         </Grid>
       </Header>
-      <WorksSection />
+      {/* <WorksSection /> */}
       <ResourcesSection />
       <Aboutme />
       <Contact />

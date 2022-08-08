@@ -8,6 +8,10 @@ export const NavContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
 
+  @media only screen and (max-width: 900px) {
+    width: 90%;
+  }
+
   & > ul {
     display: flex;
     align-items: center;

@@ -18,12 +18,12 @@ const Container = styled.div`
     color: #fff;
     display: grid;
     grid-template-columns: 1fr max-content;
-    margin: 0 64px 0 64px;
+    margin: 24px 64px 0 64px;
     justify-content: center;
     align-items: center;
 
     @media only screen and (max-width: 600px) {
-      margin: 0 12px 0 12px;
+      margin: 24px 12px 0 12px;
       grid-template-columns: 1fr;
       justify-items: start;
     }

@@ -1,20 +1,42 @@
 import React from "react";
 import styled from "styled-components";
 import Spline from "@splinetool/react-spline";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
 import { Button, Grid } from "@mui/material";
+// Image
+import { room } from "../../assets";
 
 const Container = styled.div`
   width: 100%;
-  height: 160vh;
+  height: 100vh;
   display: grid;
   grid-template-rows: max-content 1fr;
   padding: 0 64px 0 64px;
   overflow: hidden;
+
+  & image {
+    width: 150px;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    padding: 0 16px 0 16px;
+    height: 150vh;
+  }
+  @media only screen and (max-width: 500px) {
+    padding: 0 16px 0 16px;
+    height: 160vh;
+  }
+  @media only screen and (max-width: 400px) {
+    padding: 0 16px 0 16px;
+    height: 175vh;
+  }
+
   & > article {
     color: #fff;
     display: grid;
-    grid-template-columns: 1fr max-content;
+    grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
 
@@ -26,14 +48,20 @@ const Container = styled.div`
       right: 0;
       color: rgba(255, 255, 255, 0.1);
       z-index: -1;
+
+      @media only screen and (max-width: 900px) {
+        content: "";
+      }
     }
 
     & > div {
-      width: 60%;
+      width: 95%;
     }
 
     & h2 {
       font-size: 62px;
+      margin: 0;
+      padding: 0;
     }
   }
 `;
@@ -43,6 +71,10 @@ const TechnologiesList = styled.ul`
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 
   & > li {
     position: relative;
@@ -63,6 +95,9 @@ const TechnologiesList = styled.ul`
 `;
 
 const Aboutme = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
   return (
     <Container>
       <article>
@@ -77,7 +112,7 @@ const Aboutme = () => {
           See all!
         </Button> */}
       </article>
-      <Grid container>
+      <Grid container sx={{ overflow: "hidden", mt: 5 }}>
         <Grid
           item
           xs={12}
@@ -125,8 +160,24 @@ const Aboutme = () => {
             <li>Firebase</li>
           </TechnologiesList>
         </Grid>
-        <Grid item xs={12} lg={7}>
+        <Grid item xs={12} lg={7} sx={{ display: { xs: "none", lg: "block" } }}>
           <Spline scene="https://prod.spline.design/3EgQrXNARZCMh277/scene.splinecode" />
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          lg={7}
+          sx={{
+            display: { xs: "flex", lg: "none" },
+            justifyContent: "center",
+            alignItems: "flex-start",
+          }}
+        >
+          {matches ? (
+            <img src={room} alt="room" style={{ width: "600px" }} />
+          ) : (
+            <img src={room} alt="room" style={{ width: "350px" }} />
+          )}
         </Grid>
       </Grid>
     </Container>

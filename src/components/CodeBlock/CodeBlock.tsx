@@ -4,9 +4,7 @@ import styled from "styled-components";
 import { Box } from "@mui/material";
 
 const CodeBlockDiv = styled.div`
-  width: 100%;
-  min-width: 525px;
-  max-width: 700px;
+  max-width: 600px;
   background: #eee;
   color: #000;
   position: relative;
@@ -74,8 +72,6 @@ const CodeBlock = () => {
           &nbsp;surname&#58; &#34;Purwin&#34;&#44;
           <br />
           &nbsp;location&#58; &#34;Poland&#34;&#44;
-          <br />
-          &nbsp;technologies&#58; &#91;React&#44; CSS&#44; SCSS&#44; HTML&#93;
           <br />
           &#125;
         </pre>
