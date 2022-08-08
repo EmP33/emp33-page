@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { avatar } from "../assets/index";
 // Components
 import Appbar from "../components/Appbar/Appbar";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
+import CodeBlock from "../components/CodeBlock/CodeBlock";
+import WorksSection from "../components/WorksSection/WorksSection";
+import ResourcesSection from "../components/ResourcesSection/ResourcesSection";
+import Aboutme from "../components/Aboutme/Aboutme";
+import Contact from "../components/Contact/Contact";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -110,6 +115,41 @@ const Header = styled.header`
   }
 `;
 
+const AnimatedHeading = styled.h2`
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover span:nth-child(even) {
+    letter-spacing: 0;
+  }
+  &:hover span:nth-child(2) {
+    transition-delay: 0;
+  }
+  &:hover span:nth-child(4) {
+    transition-delay: 0.5s;
+  }
+  &:hover span:nth-child(6) {
+    transition-delay: 1s;
+  }
+  &:hover span:nth-child(8) {
+    transition-delay: 1.5s;
+  }
+
+  & > span {
+    display: inline-flex;
+    color: #5b41f2;
+
+    &:nth-child(even) {
+      overflow: hidden;
+      transition: ease-in-out 0.5s;
+      color: #fff;
+      border-bottom: 8px solid #5b41f2;
+      letter-spacing: -1em;
+    }
+  }
+`;
+
 const HomePage = () => {
   return (
     <Container>
@@ -148,22 +188,57 @@ const HomePage = () => {
               letterSpacing: 2,
             }}
           >
-            The Magic Space of the front end developer
+            <AnimatedHeading>
+              <span>F</span>
+              <span>ront</span>-<span>E</span>
+              <span>nd</span> <span>D</span>
+              <span>eveloper</span>
+            </AnimatedHeading>
           </Typography>
         </Box>
-        <Box
+        <Grid
+          container
           sx={{
             position: "absolute",
-            zIndex: 11,
-            top: "50%",
-            left: "10%",
-            transform: "translate(-10%,-50%)",
-            width: { xs: 350, sm: 400, md: 400, lg: 400 },
+            left: "50%",
+            top: { xs: "25%", sm: "35%", md: "50%" },
+            transform: {
+              xs: "translate(-50%,-25%)",
+              sm: "translate(-50%,-35%)",
+              md: "translate(-50%,-50%)",
+            },
+            alignItems: "center",
+            justifyContent: "center",
+            justifyItems: "center",
+            width: "90%",
+            mt: { xs: 12, sm: 5 },
+            zIndex: 15,
+            gridRowGap: 25,
           }}
         >
-          <img src={avatar} alt="avatar" style={{ width: "100%" }} />
-        </Box>
+          <Grid item xs={12} md={4}>
+            <Box
+              sx={{
+                zIndex: 11,
+                width: { xs: 250, sm: 250, lg: 350 },
+                background: "var(--color-primary-light)",
+                borderRadius: "50%",
+                margin: "0 auto",
+                mt: 2,
+              }}
+            >
+              <img src={avatar} alt="avatar" style={{ width: "100%" }} />
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <CodeBlock />
+          </Grid>
+        </Grid>
       </Header>
+      <WorksSection />
+      <ResourcesSection />
+      <Aboutme />
+      <Contact />
     </Container>
   );
 };
