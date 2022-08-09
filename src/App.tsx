@@ -8,14 +8,15 @@ import GlobalStyle from "./App.styles";
 // Router
 import { Route, Routes } from "react-router-dom";
 // Components
-import HomePage from "./pages/HomePage";
-import LoadingPage from "./pages/LoadingPage";
-import ResourcesPage from "./pages/ResourcesPage";
-import WorksPage from "./pages/WorksPage";
+import HomePage from "./pages/HomePage/HomePage";
+import LoadingPage from "./pages/LoadingPage/LoadingPage";
+import ResourcesPage from "./pages/ResourcesPage/ResourcesPage";
+import WorksPage from "./pages/WorksPage/WorksPage";
 // Types
 import { WorkType } from "./data.types";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import WorkPage from "./pages/WorkPage/WorkPage";
 
 const theme = createTheme({
   palette: {
@@ -33,7 +34,6 @@ function App() {
     const data = snapshot.val();
     if (!works.length) setWorks(data);
   });
-  console.log(works);
 
   if (!works.length)
     return (
@@ -51,6 +51,7 @@ function App() {
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/resources/:resourceName" element={<ResourcesPage />} />
         <Route path="/works" element={<WorksPage />} />
+        <Route path="/works/:workID" element={<WorkPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

@@ -1,13 +1,13 @@
 import React from "react";
-import { avatar } from "../assets/index";
+import { avatar } from "../../assets/index";
 // Components
-import Appbar from "../components/Appbar/Appbar";
+import Appbar from "../../components/Appbar/Appbar";
 import { Typography, Box, Grid } from "@mui/material";
-import CodeBlock from "../components/CodeBlock/CodeBlock";
-import WorksSection from "../components/WorksSection/WorksSection";
-import ResourcesSection from "../components/ResourcesSection/ResourcesSection";
-import Aboutme from "../components/Aboutme/Aboutme";
-import Contact from "../components/Contact/Contact";
+import CodeBlock from "../../components/CodeBlock/CodeBlock";
+import WorksSection from "../../components/WorksSection/WorksSection";
+import ResourcesSection from "../../components/ResourcesSection/ResourcesSection";
+import Aboutme from "../../components/Aboutme/Aboutme";
+import Contact from "../../components/Contact/Contact";
 // Icons
 import { IoLogoInstagram } from "react-icons/io5";
 import { FiGithub } from "react-icons/fi";

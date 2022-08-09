@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { ref, onValue } from "firebase/database";
-import { database } from "../firebase";
+import { database } from "../../firebase";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
-import Appbar from "../components/Appbar/Appbar";
+import Appbar from "../../components/Appbar/Appbar";
 import { Box } from "@mui/material";
-import Resource from "../components/ResourcesSection/Resource";
-import ResourceSidebar from "../components/ResourceSidebar/ResourceSidebar";
+import Resource from "../../components/ResourcesSection/Resource";
+import ResourceSidebar from "../../components/ResourceSidebar/ResourceSidebar";
 // Types
-import { ResourceType } from "../data.types";
+import { ResourceType } from "../../data.types";
 
 const Container = styled.div`
   min-height: 100vh;

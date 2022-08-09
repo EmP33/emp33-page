@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Appbar from "../components/Appbar/Appbar";
+import Appbar from "../../components/Appbar/Appbar";
 // Components
 import { Grid, Button, Box, Typography } from "@mui/material";
 // Images
-import { map } from "../assets/index";
+import { map } from "../../assets/index";
 
 const Container = styled.div`
   width: 100%;

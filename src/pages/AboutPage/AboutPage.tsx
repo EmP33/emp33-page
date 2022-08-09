@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Appbar from "../components/Appbar/Appbar";
+import Appbar from "../../components/Appbar/Appbar";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -8,7 +8,7 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const WorksPage = () => {
+const AboutPage = () => {
   return (
     <Container>
       <Appbar />
@@ -16,4 +16,4 @@ const WorksPage = () => {
   );
 };
 
-export default WorksPage;
+export default AboutPage;
