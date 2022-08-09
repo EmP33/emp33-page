@@ -19,13 +19,13 @@ const Appbar = () => {
         </li>
         {matches && (
           <>
-            <Link to="#resource">
+            <Link to="/">
               <li>Home</li>
             </Link>
             <Link to="#works">
               <li>Works</li>
             </Link>
-            <Link to="#resource">
+            <Link to="/resources">
               <li>Resources</li>
             </Link>
             <Link to="#about">

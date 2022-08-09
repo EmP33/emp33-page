@@ -167,7 +167,7 @@ export const SocialList = styled.ul`
     content: "";
     width: 1px;
     height: 140px;
-    background: #808080;
+    background: var(--color-text);
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -182,7 +182,7 @@ export const SocialList = styled.ul`
       transform: translateY(-3px);
     }
     & > a {
-      color: #808080;
+      color: var(--color-text);
       font-size: 22px;
       text-decoration: none;
 
@@ -213,7 +213,7 @@ export const EmailWrapper = styled.div`
   }
 
   & > p {
-    color: #808080;
+    color: var(--color-text);
     transform: rotate(-90deg);
     transition: transform 0.2s ease-in-out;
     &:hover {
@@ -226,7 +226,7 @@ export const EmailWrapper = styled.div`
     content: "";
     width: 1px;
     height: 100px;
-    background: #808080;
+    background: var(--color-text);
     position: absolute;
     top: 0;
     left: 50%;

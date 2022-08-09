@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ref, onValue } from "firebase/database";
 import { database } from "../../firebase";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
 import { Box } from "@mui/material";
 import Work from "./Work";
@@ -37,6 +39,7 @@ const Container = styled.div`
     grid-column-gap: 21vw;
     grid-row-gap: 20.25vw;
     grid-auto-rows: 13vw;
+    margin-bottom: 60px;
   }
 
   @media only screen and (max-width: 600px) {
@@ -55,15 +58,50 @@ const Container = styled.div`
 `;
 
 const Works = () => {
+  const theme = useTheme();
+  const mediumMatches = useMediaQuery(theme.breakpoints.up("md"));
+  const xsMatches = useMediaQuery(theme.breakpoints.up("sm"));
   const [works, setWorks] = useState<WorkType[]>([]);
+  const [displayWorks, setDisplayWorks] = useState<WorkType[]>([]);
   const worksRef = ref(database, "/works");
   onValue(worksRef, (snapshot) => {
     const data = snapshot.val();
     if (!works.length) setWorks(data);
   });
+
+  useEffect(() => {
+    if (!xsMatches) {
+      setDisplayWorks(
+        works
+          .map((value) => ({ value, sort: Math.random() }))
+          .sort((a: any, b: any) => a.sort - b.sort)
+          // @ts-ignore
+          .map(({ value }) => value)
+          .slice(0, 5)
+      );
+    } else if (!mediumMatches) {
+      setDisplayWorks(
+        works
+          .map((value) => ({ value, sort: Math.random() }))
+          .sort((a: any, b: any) => a.sort - b.sort)
+          // @ts-ignore
+          .map(({ value }) => value)
+          .slice(0, 12)
+      );
+    } else {
+      setDisplayWorks(
+        works
+          .map((value) => ({ value, sort: Math.random() }))
+          .sort((a: any, b: any) => a.sort - b.sort)
+          // @ts-ignore
+          .map(({ value }) => value)
+          .slice(0, 18)
+      );
+    }
+  }, [works]);
   return (
     <Container>
-      {works.map((work: WorkType) => (
+      {displayWorks.map((work: WorkType) => (
         <Work key={work.id} work={work} />
       ))}
     </Container>

@@ -58,7 +58,6 @@ const Container = styled.div`
 `;
 const ResourcesSection = () => {
   const theme = useTheme();
-
   const mediumMatches = useMediaQuery(theme.breakpoints.up("md"));
   const xsMatches = useMediaQuery(theme.breakpoints.up("sm"));
   const [resources, setResources] = useState<ResourceType[]>([]);

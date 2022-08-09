@@ -115,7 +115,7 @@ const Resource: React.FC<Props> = ({ resource }) => {
         <Typography variant="h4" sx={{ mb: 1 }}>
           {resource.title}
         </Typography>
-        <Typography variant="body1" sx={{ color: "#aaa" }}>
+        <Typography variant="body1" sx={{ color: "var(--color-text)" }}>
           {resource.description}
         </Typography>
       </Paper>
