@@ -32,6 +32,9 @@ export const NavContainer = styled.nav`
       text-decoration: none;
       color: #fff;
     }
+    .active-nav {
+      color: var(--color-text);
+    }
   }
 
   & > div {

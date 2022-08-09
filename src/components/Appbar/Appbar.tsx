@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 // Styles
 import { NavContainer, IconButton } from "./Appbar.styles";
 // Icons
@@ -10,7 +10,9 @@ import { FaEnvelope } from "react-icons/fa";
 
 const Appbar = () => {
   const theme = useTheme();
+  const location = useLocation();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <NavContainer>
       <ul>
@@ -19,18 +21,36 @@ const Appbar = () => {
         </li>
         {matches && (
           <>
-            <Link to="/">
+            <NavLink
+              to="/"
+              className={location.pathname === "/" ? "active-nav" : ""}
+            >
               <li>Home</li>
-            </Link>
-            <Link to="#works">
+            </NavLink>
+            <NavLink
+              to="#works"
+              className={
+                location.pathname.includes("/works") ? "active-nav" : ""
+              }
+            >
               <li>Works</li>
-            </Link>
-            <Link to="/resources">
+            </NavLink>
+            <NavLink
+              to="/resources"
+              className={
+                location.pathname.includes("/resources") ? "active-nav" : ""
+              }
+            >
               <li>Resources</li>
-            </Link>
-            <Link to="#about">
+            </NavLink>
+            <NavLink
+              to="#about"
+              className={
+                location.pathname.includes("/about") ? "active-nav" : ""
+              }
+            >
               <li>About</li>
-            </Link>
+            </NavLink>
           </>
         )}
       </ul>

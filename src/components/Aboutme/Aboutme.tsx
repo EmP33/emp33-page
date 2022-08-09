@@ -152,7 +152,7 @@ const Aboutme = () => {
           </TechnologiesList>
         </Grid>
         <Grid item xs={12} lg={7} sx={{ display: { xs: "none", lg: "block" } }}>
-          <Spline scene="https://prod.spline.design/3EgQrXNARZCMh277/scene.splinecode" />
+          {/* <Spline scene="https://prod.spline.design/3EgQrXNARZCMh277/scene.splinecode" /> */}
         </Grid>
         <Grid
           item

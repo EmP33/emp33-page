@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 // Types
 import { ResourceType } from "../../data.types";
 
@@ -15,6 +16,12 @@ const Container = styled.aside`
   }
   a {
     text-decoration: none;
+  }
+  .active {
+    background: var(--color-secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   li {
     margin-top: 16px;
@@ -59,6 +66,7 @@ interface Props {
 }
 
 const ResourceSidebar: React.FC<Props> = ({ resources }) => {
+  const location = useLocation();
   const count: any = {};
   resources.forEach((resource) => {
     count[resource.category] = (count[resource.category] || 0) + 1;
@@ -72,7 +80,13 @@ const ResourceSidebar: React.FC<Props> = ({ resources }) => {
           new Set(resources.map((resource) => resource.category))
         ).map((resource) => (
           <Link to={`/resources/${resource.toLowerCase()}`}>
-            <li>
+            <li
+              className={
+                location.pathname.includes(resource.toLowerCase())
+                  ? "active"
+                  : ""
+              }
+            >
               {resource} [{count[resource]}]
             </li>
           </Link>

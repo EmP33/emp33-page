@@ -4,6 +4,7 @@ import { ref, onValue } from "firebase/database";
 import { database } from "../../firebase";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useNavigate } from "react-router-dom";
 // Components
 import { Button, Box } from "@mui/material";
 import Resource from "./Resource";
@@ -57,6 +58,7 @@ const Container = styled.div`
   }
 `;
 const ResourcesSection = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
   const mediumMatches = useMediaQuery(theme.breakpoints.up("md"));
   const xsMatches = useMediaQuery(theme.breakpoints.up("sm"));
@@ -114,6 +116,7 @@ const ResourcesSection = () => {
           color="primary"
           size="large"
           sx={{ p: "10px 40px 10px 40px", letterSpacing: 2 }}
+          onClick={() => navigate("/resources")}
         >
           See all!
         </Button>
