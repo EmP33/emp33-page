@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 // Components
 import { Button } from "@mui/material";
 import Works from "./Works";
@@ -6,6 +7,7 @@ import Works from "./Works";
 import { Container } from "./WorkSection.styles";
 
 const WorksSection = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <article>
@@ -22,6 +24,7 @@ const WorksSection = () => {
           variant="contained"
           color="primary"
           sx={{ p: "10px 40px 10px 40px", letterSpacing: 2 }}
+          onClick={() => navigate("/works")}
         >
           See more!
         </Button>

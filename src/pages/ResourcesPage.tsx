@@ -13,7 +13,7 @@ import ResourceSidebar from "../components/ResourceSidebar/ResourceSidebar";
 // Types
 import { ResourceType } from "../data.types";
 
-export const Container = styled.div`
+const Container = styled.div`
   min-height: 100vh;
   width: 100%;
   margin: 0 auto;

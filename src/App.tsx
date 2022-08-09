@@ -11,8 +11,11 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoadingPage from "./pages/LoadingPage";
 import ResourcesPage from "./pages/ResourcesPage";
+import WorksPage from "./pages/WorksPage";
 // Types
 import { WorkType } from "./data.types";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 const theme = createTheme({
   palette: {
@@ -47,6 +50,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/resources/:resourceName" element={<ResourcesPage />} />
+        <Route path="/works" element={<WorksPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </ThemeProvider>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // Styles
 import { NavContainer, IconButton } from "./Appbar.styles";
 // Icons
@@ -11,12 +11,13 @@ import { FaEnvelope } from "react-icons/fa";
 const Appbar = () => {
   const theme = useTheme();
   const location = useLocation();
+  const navigate = useNavigate();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <NavContainer>
       <ul>
-        <li>
+        <li onClick={() => navigate("/")}>
           <h5>EMP33</h5>
         </li>
         {matches && (
@@ -28,7 +29,7 @@ const Appbar = () => {
               <li>Home</li>
             </NavLink>
             <NavLink
-              to="#works"
+              to="/works"
               className={
                 location.pathname.includes("/works") ? "active-nav" : ""
               }
@@ -44,7 +45,7 @@ const Appbar = () => {
               <li>Resources</li>
             </NavLink>
             <NavLink
-              to="#about"
+              to="/about"
               className={
                 location.pathname.includes("/about") ? "active-nav" : ""
               }
@@ -59,7 +60,7 @@ const Appbar = () => {
         <IconButton>
           <IoSearchOutline />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => navigate("/contact")}>
           <FaEnvelope />
         </IconButton>
       </div>

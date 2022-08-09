@@ -55,4 +55,5 @@ export const IconButton = styled.button`
   align-items: center;
   justify-content: center;
   margin: 0 8px 0 8px;
+  cursor: pointer;
 `;
