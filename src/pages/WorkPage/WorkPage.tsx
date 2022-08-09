@@ -39,13 +39,13 @@ const WorkPage = () => {
             p: 4,
             background: "var(--color-primary-dark)",
             display: "grid",
-            gridTemplateColumns: "repeat(2,1fr)",
+            gridTemplateColumns: { xs: "1fr", md: "repeat(2,1fr)" },
             position: "absolute",
             top: "50%",
             transform: "translateY(-50%)",
           }}
         >
-          <Box>
+          <Box sx={{ gridRow: { xs: "2/3", md: "1/2" }, mt: { xs: 5, md: 0 } }}>
             <img src={work.image} alt="work" style={{ width: "100%" }} />
           </Box>
           <Box sx={{ color: "var(--color-text)", pl: 4 }}>
