@@ -30,13 +30,17 @@ const ResourcesPage = () => {
     if (!resources.length) setResources(data);
   });
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Container>
       <Appbar />
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "max-content 1fr",
+          gridTemplateColumns: { xs: "1fr", sm: "max-content 1fr" },
           columnGap: 5,
         }}
       >

@@ -20,6 +20,19 @@ const WorksContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 12.7vw;
   justify-content: center;
+
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 16.9vw;
+  }
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 25.2vw;
+  }
+  @media only screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 48vw;
+  }
 `;
 
 const WorksPage = () => {

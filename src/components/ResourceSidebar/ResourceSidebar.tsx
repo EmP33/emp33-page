@@ -13,6 +13,13 @@ const Container = styled.aside`
     color: var(--color-text);
     margin: 0;
     padding-left: 24px;
+    display: grid;
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width: 450px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   a {
     text-decoration: none;
