@@ -63,8 +63,8 @@ const ResourcesSection = () => {
   const xsMatches = useMediaQuery(theme.breakpoints.up("sm"));
   const [resources, setResources] = useState<ResourceType[]>([]);
   const [displayResources, setDisplayResources] = useState<ResourceType[]>([]);
-  const starCountRef = ref(database, "/resources");
-  onValue(starCountRef, (snapshot) => {
+  const resourcesRef = ref(database, "/resources");
+  onValue(resourcesRef, (snapshot) => {
     const data = snapshot.val();
     if (!resources.length) setResources(data);
   });

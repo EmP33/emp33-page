@@ -16,3 +16,12 @@ export interface ResourceType {
   description: string;
   link: string;
 }
+
+export interface WorkType {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  ghlink: string;
+  link: string;
+}
