@@ -23,6 +23,7 @@ const LoadingPage = () => {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
+          textAlign: "center",
         }}
       >
         <Typography

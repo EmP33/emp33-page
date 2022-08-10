@@ -22,7 +22,7 @@ const Work: React.FC<Props> = ({ work }) => {
         width: "100%",
         height: "100%",
         cursor: "pointer",
-        filter: "brightness(55%)",
+        filter: { xs: "brightness(90%)", sm: "brightness(55%)" },
 
         "&:hover": {
           filter: "brightness(100%)",

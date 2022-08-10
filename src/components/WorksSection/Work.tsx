@@ -25,7 +25,7 @@ const Work: React.FC<Props> = ({ work }) => {
         transform: { xs: "scale(1)", sm: "scale(2.5)" },
         transition: "0.3s",
         cursor: "pointer",
-        filter: "brightness(55%)",
+        filter: { xs: "brightness(90%)", sm: "brightness(55%)" },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

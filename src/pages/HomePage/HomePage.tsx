@@ -122,8 +122,8 @@ const HomePage = () => {
           </Grid>
         </Grid>
       </Header>
+      <WorksSection />
       <Box sx={{ width: { xs: "100%", sm: "95%" }, marginLeft: "auto" }}>
-        <WorksSection />
         <ResourcesSection />
         <Aboutme />
         <Contact />

@@ -5,13 +5,14 @@ export const Container = styled.div`
   min-height: 100vh;
   overflow: hidden;
 
-  & > article {
+  & article {
     color: #fff;
     display: grid;
     grid-template-columns: 1fr max-content;
     margin: 16px 64px 0 64px;
     justify-content: center;
     align-items: center;
+
     @media only screen and (max-width: 900px) {
       grid-template-columns: 1fr;
       margin: 16px 12px 0 12px;
