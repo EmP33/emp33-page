@@ -2,13 +2,15 @@ import React from "react";
 import { RaceBy } from "@uiball/loaders";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../../App";
+// Store
+import { useAppSelector } from "../../lib/hooks";
 // Styles
 import GlobalStyle from "../../App.styles";
-
 // Component
 import { Container, Typography } from "@mui/material";
 
 const LoadingPage = () => {
+  const jokes = useAppSelector((state) => state.ui.jokes);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -31,9 +33,15 @@ const LoadingPage = () => {
           EMP33
         </Typography>
         <RaceBy size={250} lineWeight={7} speed={2} color="white" />;
+        <Typography
+          variant="body1"
+          sx={{ color: "var(--color-text)", fotnSize: 25 }}
+        >
+          {jokes[Math.floor(Math.random() * jokes.length)]}
+        </Typography>
       </Container>
     </ThemeProvider>
   );
 };
 
-export default LoadingPage;
+export default React.memo(LoadingPage);

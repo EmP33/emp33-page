@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ref, onValue } from "firebase/database";
 import { database } from "./firebase";
-// Store
-import { useAppDispatch, useAppSelector } from "./lib/hooks";
-import { uiActions } from "./store/uiSlice";
+
 // Styles
 import GlobalStyle from "./App.styles";
 // Router
 import { Route, Routes } from "react-router-dom";
 // Components
 import HomePage from "./pages/HomePage/HomePage";
-import LoadingPage from "./pages/LoadingPage/LoadingPage";
+
 import ResourcesPage from "./pages/ResourcesPage/ResourcesPage";
 import WorksPage from "./pages/WorksPage/WorksPage";
 // Types
@@ -30,8 +28,6 @@ export const theme = createTheme({
 });
 
 function App() {
-  const dispatch = useAppDispatch();
-  const loading = useAppSelector((state) => state.ui.loading);
   const [works, setWorks] = useState<WorkType[]>([]);
 
   const worksRef = ref(database, "/works");
@@ -39,8 +35,6 @@ function App() {
     const data = snapshot.val();
     if (!works.length) setWorks(data);
   });
-
-  if (!works.length) return <LoadingPage />;
 
   return (
     <ThemeProvider theme={theme}>

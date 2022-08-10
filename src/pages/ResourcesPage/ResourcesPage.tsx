@@ -43,9 +43,9 @@ const ResourcesPage = () => {
     }, 2000);
   }, []);
 
-  // if (loading) {
-  //   return <LoadingPage />;
-  // }
+  if (loading) {
+    return <LoadingPage />;
+  }
 
   return (
     <Container>
