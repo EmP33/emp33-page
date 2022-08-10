@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { avatar } from "../../assets/index";
+import { useAppDispatch, useAppSelector } from "../../lib/hooks";
+import { uiActions } from "../../store/uiSlice";
 // Components
 import Appbar from "../../components/Appbar/Appbar";
 import { Typography, Box, Grid } from "@mui/material";
@@ -8,6 +10,7 @@ import WorksSection from "../../components/WorksSection/WorksSection";
 import ResourcesSection from "../../components/ResourcesSection/ResourcesSection";
 import Aboutme from "../../components/Aboutme/Aboutme";
 import Contact from "../../components/Contact/Contact";
+import LoadingPage from "../LoadingPage/LoadingPage";
 // Icons
 import { IoLogoInstagram } from "react-icons/io5";
 import { FiGithub } from "react-icons/fi";
@@ -23,6 +26,19 @@ import {
 } from "./HomePage.styles";
 
 const HomePage = () => {
+  const dispatch = useAppDispatch();
+  const loading = useAppSelector((state) => state.ui.loading);
+
+  useEffect(() => {
+    dispatch(uiActions.switchLoading(true));
+    setTimeout(() => {
+      dispatch(uiActions.switchLoading(false));
+    }, 2000);
+  }, []);
+
+  if (loading) {
+    return <LoadingPage />;
+  }
   return (
     <Container>
       <Appbar />
@@ -51,8 +67,7 @@ const HomePage = () => {
           >
             Marek Purwin
           </Typography>
-          <Typography
-            variant="h2"
+          <Box
             sx={{
               fontWeight: "100",
               fontSize: { xs: "14px", md: "16px", lg: "18px" },
@@ -66,7 +81,7 @@ const HomePage = () => {
               <span>nd</span> <span>D</span>
               <span>eveloper</span>
             </AnimatedHeading>
-          </Typography>
+          </Box>
         </Box>
         <Grid
           container

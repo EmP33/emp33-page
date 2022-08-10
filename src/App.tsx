@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ref, onValue } from "firebase/database";
 import { database } from "./firebase";
-import { useTheme } from "@mui/material/styles";
+// Store
+import { useAppDispatch, useAppSelector } from "./lib/hooks";
+import { uiActions } from "./store/uiSlice";
 // Styles
 import GlobalStyle from "./App.styles";
 // Router
@@ -18,7 +20,7 @@ import AboutPage from "./pages/AboutPage/AboutPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import WorkPage from "./pages/WorkPage/WorkPage";
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     primary: { main: "#5b41f2" },
     secondary: { main: "#26272a" },
@@ -28,20 +30,17 @@ const theme = createTheme({
 });
 
 function App() {
+  const dispatch = useAppDispatch();
+  const loading = useAppSelector((state) => state.ui.loading);
   const [works, setWorks] = useState<WorkType[]>([]);
+
   const worksRef = ref(database, "/works");
   onValue(worksRef, (snapshot) => {
     const data = snapshot.val();
     if (!works.length) setWorks(data);
   });
 
-  if (!works.length)
-    return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <LoadingPage />
-      </ThemeProvider>
-    );
+  if (!works.length) return <LoadingPage />;
 
   return (
     <ThemeProvider theme={theme}>

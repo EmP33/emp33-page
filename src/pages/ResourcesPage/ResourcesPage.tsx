@@ -5,6 +5,8 @@ import { ref, onValue } from "firebase/database";
 import { database } from "../../firebase";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useAppDispatch, useAppSelector } from "../../lib/hooks";
+import { uiActions } from "../../store/uiSlice";
 // Components
 import Appbar from "../../components/Appbar/Appbar";
 import { Box } from "@mui/material";
@@ -12,6 +14,7 @@ import Resource from "../../components/ResourcesSection/Resource";
 import ResourceSidebar from "../../components/ResourceSidebar/ResourceSidebar";
 // Types
 import { ResourceType } from "../../data.types";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -21,6 +24,8 @@ const Container = styled.div`
 
 const ResourcesPage = () => {
   const params = useParams();
+  const dispatch = useAppDispatch();
+  const loading = useAppSelector((state) => state.ui.loading);
 
   const [resources, setResources] = useState<ResourceType[]>([]);
 
@@ -32,7 +37,15 @@ const ResourcesPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch(uiActions.switchLoading(true));
+    setTimeout(() => {
+      dispatch(uiActions.switchLoading(false));
+    }, 2000);
   }, []);
+
+  // if (loading) {
+  //   return <LoadingPage />;
+  // }
 
   return (
     <Container>

@@ -86,7 +86,7 @@ const ResourceSidebar: React.FC<Props> = ({ resources }) => {
         {Array.from(
           new Set(resources.map((resource) => resource.category))
         ).map((resource) => (
-          <Link to={`/resources/${resource.toLowerCase()}`}>
+          <Link to={`/resources/${resource.toLowerCase()}`} key={resource}>
             <li
               className={
                 location.pathname.includes(resource.toLowerCase())

@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ref, onValue } from "firebase/database";
 import { database } from "../../firebase";
+// Store
+import { useAppDispatch, useAppSelector } from "../../lib/hooks";
+import { uiActions } from "../../store/uiSlice";
+
 // Components
 import Appbar from "../../components/Appbar/Appbar";
 import Work from "./Work";
+import LoadingPage from "../LoadingPage/LoadingPage";
 // Type
 import { WorkType } from "../../data.types";
 
@@ -36,10 +41,16 @@ const WorksContainer = styled.div`
 `;
 
 const WorksPage = () => {
+  const dispatch = useAppDispatch();
   const [works, setWorks] = useState<WorkType[]>([]);
+  const loading = useAppSelector((state) => state.ui.loading);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch(uiActions.switchLoading(true));
+    setTimeout(() => {
+      dispatch(uiActions.switchLoading(false));
+    }, 2000);
   }, []);
 
   const worksRef = ref(database, "/works");
@@ -47,6 +58,10 @@ const WorksPage = () => {
     const data = snapshot.val();
     if (!works.length) setWorks(data);
   });
+
+  if (loading) {
+    return <LoadingPage />;
+  }
 
   return (
     <Container>
