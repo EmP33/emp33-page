@@ -1,131 +1,97 @@
-import React from "react";
+import React, { useReducer, useState, useRef } from "react";
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
 // Components
 import { Button, Grid, Box, Typography } from "@mui/material";
 // Images
 import { map } from "../../assets";
+// Icons
+import { LineWobble } from "@uiball/loaders";
+// Styles
+import { Container, ContactForm } from "./Contact.styles";
 
-const Container = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  padding-bottom: 30px;
-
-  & > article {
-    color: #fff;
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    margin: 0 64px 0 64px;
-    justify-content: center;
-    align-items: center;
-
-    @media only screen and (max-width: 900px) {
-      grid-template-columns: 1fr;
-      margin: 0 16px 0 16px;
-    }
-
-    &:after {
-      content: "Contact";
-      font-size: 150px;
-      font-weight: bold;
-      position: absolute;
-      right: 0;
-      color: rgba(255, 255, 255, 0.1);
-      z-index: -1;
-
-      @media only screen and (max-width: 900px) {
-        content: "";
-      }
-    }
-
-    & > div {
-      width: 40%;
-
-      @media only screen and (max-width: 900px) {
-        width: 95%;
-      }
-    }
-
-    & h2 {
-      font-size: 62px;
-      margin: 0;
-      padding: 0;
-    }
+const nameReducer = (state: any, action: any) => {
+  if (action.type === "USER_INPUT") {
+    return { value: action.val, isError: action.val === "" };
   }
-`;
-
-const ContactForm = styled.form`
-  & ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 10px;
-    padding: 0;
-    & > li {
-      list-style-type: none;
-      position: relative;
-
-      &:hover label {
-        width: 100%;
-      }
-    }
-    & label {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      transition: 0.2s linear;
-      &::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background: #5b41f2;
-      }
-    }
+  return { value: "", isError: null };
+};
+const emailReducer = (state: any, action: any) => {
+  if (action.type === "USER_INPUT") {
+    return {
+      value: action.val,
+      isError: action.val === "" || !action.val.includes("@"),
+    };
   }
-
-  .entire {
-    grid-column: 1/-1;
+  return { value: "", isError: null };
+};
+const subjectReducer = (state: any, action: any) => {
+  if (action.type === "USER_INPUT") {
+    return { value: action.val, isError: action.val === "" };
   }
-
-  & .border {
-    position: relative;
-
-    &::after {
-      transition: 0.2s linear;
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 3px;
-      background: #5b41f2;
-      bottom: 0;
-      left: 0;
-    }
+  return { value: "", isError: null };
+};
+const messageReducer = (state: any, action: any) => {
+  if (action.type === "USER_INPUT") {
+    return { value: action.val, isError: action.val === "" };
   }
-
-  .subject-div {
-    grid-column: 1/-1;
-  }
-
-  & input,
-  & textarea {
-    min-height: 50px;
-    width: 100%;
-    padding-left: 10px;
-    font-size: 18px;
-    background: var(--color-primary-light);
-    border: none;
-    outline: none;
-    color: #fff;
-
-    &:active .border::after {
-      width: 100%;
-    }
-  }
-`;
+  return { value: "", isError: null };
+};
 
 const Contact = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [formLoading, setFormLoading] = useState<boolean>(false);
+  const [formStatus, setFormStatus] = useState<"error" | "done" | null>(null);
+
+  const [nameState, dispatchName] = useReducer(nameReducer, {
+    value: "",
+    isError: null,
+  });
+  const [emailState, dispatchEmail] = useReducer(emailReducer, {
+    value: "",
+    isError: null,
+  });
+  const [subjectState, dispatchSubject] = useReducer(subjectReducer, {
+    value: "",
+    isError: null,
+  });
+  const [messageState, dispatchMessage] = useReducer(messageReducer, {
+    value: "",
+    isError: null,
+  });
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormLoading(true);
+    if (
+      !messageState.isError &&
+      !subjectState.isError &&
+      !emailState.isError &&
+      !nameState.isError &&
+      form.current
+    ) {
+      emailjs
+        .sendForm(
+          process.env.REACT_APP_EMAILJS_SERVICES!,
+          process.env.REACT_APP_EMAILJS_TEMPLATE!,
+          form.current,
+          process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
+        )
+        .then(
+          (result) => {
+            messageState.value = "";
+            subjectState.value = "";
+            emailState.value = "";
+            nameState.value = "";
+            setFormLoading(false);
+            setFormStatus("done");
+          },
+          (error) => {
+            setFormStatus("error");
+          }
+        );
+    }
+  };
   return (
     <Container>
       <article>
@@ -145,22 +111,88 @@ const Contact = () => {
           md={6}
           sx={{ p: { xs: 2, md: 5 }, mt: { xs: 1, md: 10 } }}
         >
-          <ContactForm>
+          <ContactForm ref={form} onSubmit={sendEmail}>
             <ul>
               <li className="half name-div">
-                <input placeholder="Name" />
+                <input
+                  onChange={(event) =>
+                    dispatchName({
+                      type: "USER_INPUT",
+                      val: event?.target.value,
+                    })
+                  }
+                  placeholder="Name"
+                  name="name"
+                  required
+                  disabled={formLoading}
+                  value={nameState.value}
+                  style={{
+                    border: nameState.isError ? "1px solid #f44336" : "",
+                    color: nameState.isError ? "#f44336" : "",
+                  }}
+                />
                 <label></label>
               </li>
               <li className="half email-div">
-                <input placeholder="Email" />
+                <input
+                  placeholder="Email"
+                  type="email"
+                  name="email"
+                  disabled={formLoading}
+                  required
+                  value={emailState.value}
+                  onChange={(event) =>
+                    dispatchEmail({
+                      type: "USER_INPUT",
+                      val: event?.target.value,
+                    })
+                  }
+                  style={{
+                    border: emailState.isError ? "1px solid #f44336" : "",
+                    color: emailState.isError ? "#f44336" : "",
+                  }}
+                />
                 <label></label>
               </li>
               <li className="entire subject-div">
-                <input placeholder="Subject" />
+                <input
+                  placeholder="Subject"
+                  name="subject"
+                  required
+                  disabled={formLoading}
+                  value={subjectState.value}
+                  onChange={(event) =>
+                    dispatchSubject({
+                      type: "USER_INPUT",
+                      val: event?.target.value,
+                    })
+                  }
+                  style={{
+                    border: subjectState.isError ? "1px solid #f44336" : "",
+                    color: subjectState.isError ? "#f44336" : "",
+                  }}
+                />
                 <label></label>
               </li>
               <li className="entire">
-                <textarea placeholder="Message" rows={9} />
+                <textarea
+                  value={messageState.value}
+                  placeholder="Message"
+                  rows={9}
+                  disabled={formLoading}
+                  onChange={(event) =>
+                    dispatchMessage({
+                      type: "USER_INPUT",
+                      val: event?.target.value,
+                    })
+                  }
+                  name="message"
+                  required
+                  style={{
+                    border: messageState.isError ? "1px solid #f44336" : "",
+                    color: messageState.isError ? "#f44336" : "",
+                  }}
+                />
                 <label></label>
               </li>
               <li
@@ -168,11 +200,40 @@ const Contact = () => {
                 style={{ justifySelf: "flex-end", marginTop: "20px" }}
               >
                 <Button
+                  type="submit"
                   variant="contained"
                   size="large"
-                  sx={{ fontSize: 18, letterSpacing: 1 }}
+                  sx={{
+                    fontSize: 18,
+                    letterSpacing: 1,
+                    display: "grid",
+                    justifyItems: "center",
+                    minWidth: "193.75px",
+                    minHeight: "50px",
+                    background:
+                      formStatus === "done"
+                        ? "#4caf50"
+                        : formStatus === "error"
+                        ? "#f44336"
+                        : formLoading
+                        ? "#2196f3"
+                        : "var(--color-secondary)",
+                  }}
                 >
-                  SEND MESSAGE!
+                  {formLoading ? (
+                    <LineWobble
+                      size={150}
+                      lineWeight={5}
+                      speed={1.75}
+                      color="white"
+                    />
+                  ) : formStatus === "done" ? (
+                    "SENDED MESSAGE"
+                  ) : formStatus === "error" ? (
+                    "ERROR"
+                  ) : (
+                    "SEND MESSAGE!"
+                  )}
                 </Button>
               </li>
             </ul>
