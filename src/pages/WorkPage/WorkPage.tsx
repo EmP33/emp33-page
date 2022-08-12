@@ -18,6 +18,32 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
+const TechnologiesList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  padding: 0;
+
+  li {
+    position: relative;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    font-size: 15px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background: var(--color-secondary);
+      clip-path: polygon(0 0, 0 100%, 100% 50%);
+    }
+  }
+`;
+
 const WorkPage = () => {
   const navigate = useNavigate();
   const [work, setWork] = useState<WorkType | null>(null);
@@ -51,6 +77,11 @@ const WorkPage = () => {
           <Box sx={{ color: "var(--color-text)", pl: { xs: 1, sm: 4 } }}>
             <Typography variant="h2">{work.title}</Typography>
             <Typography variant="body1">{work.description}</Typography>
+            <TechnologiesList>
+              {work.topics.map((topic, i) => (
+                <li key={`${topic}-${i}`}>{topic}</li>
+              ))}
+            </TechnologiesList>
             <Box
               sx={{
                 mt: 4,

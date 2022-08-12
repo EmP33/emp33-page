@@ -24,4 +24,5 @@ export interface WorkType {
   image: string;
   ghlink: string;
   link: string;
+  topics: string[];
 }

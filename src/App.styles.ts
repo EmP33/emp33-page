@@ -9,6 +9,8 @@ const GlobalStyle = createGlobalStyle`
         --color-secondary: #5b41f2;
 
         --color-text: #767f99;
+
+        --font-mono: 'Roboto Mono', monospace;
     }
 
     body {

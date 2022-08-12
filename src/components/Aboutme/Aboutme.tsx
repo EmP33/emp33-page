@@ -5,6 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
 import { Button, Grid } from "@mui/material";
+import Screen3D from "../UI/Screen3D";
 // Image
 import { room } from "../../assets";
 
@@ -116,22 +117,29 @@ const Aboutme = () => {
             fontSize: "18px",
           }}
         >
-          <h2 style={{ color: "#ab49de", fontSize: "40px", fontWeight: 300 }}>
+          <h2
+            style={{
+              color: "var(--color-text)",
+              fontSize: "40px",
+              fontWeight: 300,
+            }}
+          >
             Something about me
           </h2>
           <p>
-            Hello! My name is <span style={{ color: "#ab49de" }}>Marek</span>{" "}
-            and I am passionate about creating things for Internet. My greatest
-            interest is in creating web applications that can also be useful to
-            other people. I started my adventure in{" "}
-            <span style={{ color: "#ab49de" }}>2019</span>, when I started
-            learning HTML and CSS in high school, I immediately liked it and I
-            started training in this outside of school.
+            Hello! My name is{" "}
+            <span style={{ color: "var(--color-text)" }}>Marek</span> and I am
+            passionate about creating things for Internet. My greatest interest
+            is in creating web applications that can also be useful to other
+            people. I started my adventure in{" "}
+            <span style={{ color: "var(--color-text)" }}>2019</span>, when I
+            started learning HTML and CSS in high school, I immediately liked it
+            and I started training in this outside of school.
           </p>
           <p>
             Since then, I have been constantly devoting myself to this passion.
             Over the years I have{" "}
-            <span style={{ color: "#ab49de" }}>
+            <span style={{ color: "var(--color-text)" }}>
               mastered a lot of technologies to a decent degree, and expanded
               and I consolidated my knowledge quite well
             </span>
@@ -152,7 +160,7 @@ const Aboutme = () => {
           </TechnologiesList>
         </Grid>
         <Grid item xs={12} lg={7} sx={{ display: { xs: "none", lg: "block" } }}>
-          {/* <Spline scene="https://prod.spline.design/3EgQrXNARZCMh277/scene.splinecode" /> */}
+          <Screen3D />
         </Grid>
         <Grid
           item

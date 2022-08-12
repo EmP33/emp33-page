@@ -11,6 +11,7 @@ import ResourcesSection from "../../components/ResourcesSection/ResourcesSection
 import Aboutme from "../../components/Aboutme/Aboutme";
 import Contact from "../../components/Contact/Contact";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import Footer from "../../components/Footer/Footer";
 // Icons
 import { IoLogoInstagram } from "react-icons/io5";
 import { FiGithub } from "react-icons/fi";
@@ -161,6 +162,7 @@ const HomePage = () => {
       <EmailWrapper>
         <p>purwinmarek16@gmail.com</p>
       </EmailWrapper>
+      <Footer />
     </Container>
   );
 };
