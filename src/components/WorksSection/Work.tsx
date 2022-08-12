@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 // Types
 import { WorkType } from "../../data.types";
@@ -8,8 +9,10 @@ interface Props {
 }
 
 const Work: React.FC<Props> = ({ work }) => {
+  const navigate = useNavigate();
   return (
     <Box
+      onClick={() => navigate(`/works/${work.id}`)}
       sx={{
         position: "relative",
         backgroundImage: `url(${work.image})`,
