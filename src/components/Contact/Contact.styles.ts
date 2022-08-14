@@ -56,6 +56,10 @@ export const ContactForm = styled.form`
     grid-column-gap: 20px;
     grid-row-gap: 10px;
     padding: 0;
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
     & > li {
       list-style-type: none;
       position: relative;

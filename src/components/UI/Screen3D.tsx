@@ -3,7 +3,7 @@ import { Screen } from "./Screen3D.styles";
 
 const Screen3D = () => {
   return (
-    <Screen>
+    <Screen data-aos="fade-left">
       <div className="scene">
         <div className="shape cuboid-1 cub-1">
           <div className="face ft">

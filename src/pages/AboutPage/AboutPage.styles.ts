@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   min-height: 100vh;
   width: 90%;
   margin: 0 auto;
@@ -49,7 +50,7 @@ export const TechnologiesList = styled.ul`
   }
 `;
 
-export const HeadingText = styled.h2`
+export const HeadingText = styled(motion.h2)`
   font-size: 62px;
   margin: 64px 0 0 0;
   padding: 0;

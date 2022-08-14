@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const NavContainer = styled.nav`
   color: #eee;
@@ -28,7 +29,7 @@ export const NavContainer = styled.nav`
         font-size: 22px;
       }
     }
-    & > a {
+    & a {
       text-decoration: none;
       color: #fff;
     }
@@ -42,7 +43,7 @@ export const NavContainer = styled.nav`
   }
 `;
 
-export const IconButton = styled.button`
+export const IconButton = styled(motion.button)`
   border-radius: 50%;
   padding: 8px;
   font-size: 18px;

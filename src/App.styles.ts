@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
         background: var(--color-primary);
         scroll-behavior: smooth;
         user-select:none;
+        overflow-x: hidden;
       
     }
 

@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+// Components
 import { Paper, Typography } from "@mui/material";
 // Types
 import { ResourceType } from "../../data.types";
@@ -7,9 +9,25 @@ interface Props {
   resource: ResourceType;
 }
 
+const listVariant = {
+  hidden: {
+    y: "5vh",
+    opacity: 0,
+  },
+  visible: (i: number) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: i * 0.1 },
+  }),
+};
+
 const Resource: React.FC<Props> = ({ resource }) => {
   return (
-    <a
+    <motion.a
+      custom={resource.id}
+      variants={listVariant}
+      initial="hidden"
+      animate="visible"
       href={resource.link}
       target="_blank"
       rel="noreferrer"
@@ -119,7 +137,7 @@ const Resource: React.FC<Props> = ({ resource }) => {
           {resource.description}
         </Typography>
       </Paper>
-    </a>
+    </motion.a>
   );
 };
 

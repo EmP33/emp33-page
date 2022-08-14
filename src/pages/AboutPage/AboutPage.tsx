@@ -37,7 +37,7 @@ const AboutPage = () => {
     <>
       <Container>
         <Appbar />
-        <HeadingText>Something about me</HeadingText>
+        <HeadingText data-aos="fade-up">Something about me</HeadingText>
         <Grid container sx={{ overflow: "hidden", mt: 5, mb: 10 }}>
           <Grid
             item
@@ -51,7 +51,7 @@ const AboutPage = () => {
               fontSize: "18px",
             }}
           >
-            <p>
+            <p data-aos="fade-up">
               Hello! My name is{" "}
               <span style={{ color: "var(--color-text)" }}>Marek</span> and I am
               passionate about creating things for Internet. My greatest
@@ -61,7 +61,7 @@ const AboutPage = () => {
               started learning HTML and CSS in high school, I immediately liked
               it and I started training in this outside of school.
             </p>
-            <p>
+            <p data-aos="fade-up">
               Since then, I have been constantly devoting myself to this
               passion. Over the years I have{" "}
               <span style={{ color: "var(--color-text)" }}>
@@ -70,12 +70,14 @@ const AboutPage = () => {
               </span>
               .
             </p>
-            <p>
+            <p data-aos="fade-up">
               Currently I am developing more advanced applications, which are
               also designed to help others develop.
             </p>
-            <p>Here are the technologies I work with the most:</p>
-            <TechnologiesList>
+            <p data-aos="fade-up">
+              Here are the technologies I work with the most:
+            </p>
+            <TechnologiesList data-aos="fade-up">
               <li>JavaScript (ES6+)</li>
               <li>React</li>
               <li>TypeScript</li>
@@ -109,7 +111,7 @@ const AboutPage = () => {
             )}
           </Grid>
         </Grid>
-        <HeadingText>My learning timeline</HeadingText>
+        <HeadingText data-aos="fade-up">My learning timeline</HeadingText>
         <Box
           sx={{
             width: { xs: "97.5%", md: "95%", lg: "90%", xl: "75%" },

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { avatar } from "../../assets/index";
 import { useAppDispatch, useAppSelector } from "../../lib/hooks";
 import { uiActions } from "../../store/uiSlice";
+import { motion } from "framer-motion";
 // Components
 import Appbar from "../../components/Appbar/Appbar";
 import { Typography, Box, Grid } from "@mui/material";
@@ -26,6 +27,18 @@ import {
   EmailWrapper,
 } from "./HomePage.styles";
 
+const dotsVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 1,
+    },
+  },
+};
+
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const loading = useAppSelector((state) => state.ui.loading);
@@ -43,15 +56,20 @@ const HomePage = () => {
   return (
     <Container>
       <Appbar />
-      <Header>
-        <div className="dots">
+      <Header variants={dotsVariants} initial="hidden" animate="visible">
+        <motion.div
+          className="dots"
+          variants={dotsVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </motion.div>
         <Box
           sx={{
             position: "absolute",

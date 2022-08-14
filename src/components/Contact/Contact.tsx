@@ -96,8 +96,8 @@ const Contact = () => {
     <Container>
       <article>
         <div>
-          <h2>Contact</h2>
-          <p>
+          <h2 data-aos="fade-right">Contact</h2>
+          <p data-aos="fade-right">
             I’m interested in freelance opportunities – especially ambitious or
             large projects. However, if you have other request or question,
             don’t hesitate to use the form.
@@ -115,6 +115,7 @@ const Contact = () => {
             <ul>
               <li className="half name-div">
                 <input
+                  data-aos="fade-up"
                   onChange={(event) =>
                     dispatchName({
                       type: "USER_INPUT",
@@ -135,6 +136,7 @@ const Contact = () => {
               </li>
               <li className="half email-div">
                 <input
+                  data-aos="fade-up"
                   placeholder="Email"
                   type="email"
                   name="email"
@@ -156,6 +158,7 @@ const Contact = () => {
               </li>
               <li className="entire subject-div">
                 <input
+                  data-aos="fade-up"
                   placeholder="Subject"
                   name="subject"
                   required
@@ -176,6 +179,7 @@ const Contact = () => {
               </li>
               <li className="entire">
                 <textarea
+                  data-aos="fade-up"
                   value={messageState.value}
                   placeholder="Message"
                   rows={9}
@@ -200,6 +204,7 @@ const Contact = () => {
                 style={{ justifySelf: "flex-end", marginTop: "20px" }}
               >
                 <Button
+                  data-aos="fade-up"
                   type="submit"
                   variant="contained"
                   size="large"

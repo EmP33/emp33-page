@@ -2,6 +2,7 @@ import React from "react";
 import { RaceBy } from "@uiball/loaders";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../../App";
+import { motion } from "framer-motion";
 // Store
 import { useAppSelector } from "../../lib/hooks";
 // Styles
@@ -9,12 +10,28 @@ import GlobalStyle from "../../App.styles";
 // Component
 import { Container, Typography } from "@mui/material";
 
+const containerVariants = {
+  hidden: { x: "100vw" },
+  visible: { x: 0 },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
+
 const LoadingPage = () => {
   const jokes = useAppSelector((state) => state.ui.jokes);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container
+        component={motion.div}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
         maxWidth="xl"
         sx={{
           width: "100%",

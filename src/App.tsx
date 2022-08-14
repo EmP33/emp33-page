@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ref, onValue } from "firebase/database";
 import { database } from "./firebase";
-
+import { AnimatePresence } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
 // Styles
 import GlobalStyle from "./App.styles";
 // Router
@@ -28,6 +31,7 @@ export const theme = createTheme({
 });
 
 function App() {
+  AOS.init();
   const [works, setWorks] = useState<WorkType[]>([]);
 
   const worksRef = ref(database, "/works");
@@ -39,15 +43,17 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/resources" element={<ResourcesPage />} />
-        <Route path="/resources/:resourceName" element={<ResourcesPage />} />
-        <Route path="/works" element={<WorksPage />} />
-        <Route path="/works/:workID" element={<WorkPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <AnimatePresence exitBeforeEnter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/resources/:resourceName" element={<ResourcesPage />} />
+          <Route path="/works" element={<WorksPage />} />
+          <Route path="/works/:workID" element={<WorkPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </AnimatePresence>
     </ThemeProvider>
   );
 }

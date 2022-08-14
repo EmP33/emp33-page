@@ -16,6 +16,7 @@ const TimelineBlock: React.FC<Props> = ({
 }) => {
   return (
     <Box
+      data-aos="fade-up"
       sx={{
         width: "100%",
         display: "grid",

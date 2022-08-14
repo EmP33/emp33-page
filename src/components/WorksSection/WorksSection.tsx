@@ -13,8 +13,8 @@ const WorksSection = () => {
       <Box sx={{ width: "95%", marginLeft: "auto" }}>
         <article>
           <div>
-            <h2>My Portfolio</h2>
-            <p>
+            <h2 data-aos="fade-right">My Portfolio</h2>
+            <p data-aos="fade-right">
               Here are my projects that I made during my 3 years of coding
               adventure. After going to the details of the project, the
               technologies used in the project and its description will be
@@ -22,6 +22,7 @@ const WorksSection = () => {
             </p>
           </div>
           <Button
+            data-aos="fade-left"
             variant="contained"
             color="primary"
             sx={{ p: "10px 40px 10px 40px", letterSpacing: 2 }}
@@ -31,7 +32,9 @@ const WorksSection = () => {
           </Button>
         </article>
       </Box>
-      <Works />
+      <Box data-aos="fade-up">
+        <Works />
+      </Box>
     </Container>
   );
 };

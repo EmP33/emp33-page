@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Spline from "@splinetool/react-spline";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 // Components
 import { Button, Grid } from "@mui/material";
 import Screen3D from "../UI/Screen3D";
@@ -11,26 +13,29 @@ import { room } from "../../assets";
 
 const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: max-content 1fr;
-  padding: 0 64px 0 64px;
   overflow: hidden;
 
   & image {
     width: 150px;
   }
 
-  @media only screen and (max-width: 1200px) {
+  /* @media only screen and (max-width: 1200px) {
     padding: 0 16px 0 16px;
-  }
+  } */
 
   & > article {
     color: #fff;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr max-content;
+    margin: 24px 64px 0 64px;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: 600px) {
+      margin: 24px 12px 0 12px;
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
 
     &:after {
       content: "About";
@@ -47,7 +52,10 @@ const Container = styled.div`
     }
 
     & > div {
-      width: 95%;
+      width: 60%;
+      @media only screen and (max-width: 900px) {
+        width: 100%;
+      }
     }
 
     & h2 {
@@ -87,6 +95,7 @@ const TechnologiesList = styled.ul`
 `;
 
 const Aboutme = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
@@ -94,17 +103,23 @@ const Aboutme = () => {
     <Container id="about">
       <article>
         <div>
-          <h2>About me</h2>
-          {/* <p>
-            Here are the resources that I have used in my work and that I just
-            like to use
-          </p> */}
+          <h2 data-aos="fade-right">About me</h2>
         </div>
-        {/* <Button variant="contained" color="primary">
-          See all!
-        </Button> */}
+        <Button
+          variant="contained"
+          data-aos="fade-left"
+          color="primary"
+          size="large"
+          sx={{ p: "10px 40px 10px 40px", letterSpacing: 2 }}
+          onClick={() => navigate("/about")}
+        >
+          More
+        </Button>
       </article>
-      <Grid container sx={{ overflow: "hidden", mt: 5 }}>
+      <Grid
+        container
+        sx={{ overflow: "hidden", mt: 5, padding: "0 64px 0 64px" }}
+      >
         <Grid
           item
           xs={12}
@@ -118,6 +133,7 @@ const Aboutme = () => {
           }}
         >
           <h2
+            data-aos="fade-right"
             style={{
               color: "var(--color-text)",
               fontSize: "40px",
@@ -126,7 +142,7 @@ const Aboutme = () => {
           >
             Something about me
           </h2>
-          <p>
+          <p data-aos="fade-right">
             Hello! My name is{" "}
             <span style={{ color: "var(--color-text)" }}>Marek</span> and I am
             passionate about creating things for Internet. My greatest interest
@@ -136,7 +152,7 @@ const Aboutme = () => {
             started learning HTML and CSS in high school, I immediately liked it
             and I started training in this outside of school.
           </p>
-          <p>
+          <p data-aos="fade-right">
             Since then, I have been constantly devoting myself to this passion.
             Over the years I have{" "}
             <span style={{ color: "var(--color-text)" }}>
@@ -145,12 +161,14 @@ const Aboutme = () => {
             </span>
             .
           </p>
-          <p>
+          <p data-aos="fade-right">
             Currently I am developing more advanced applications, which are also
             designed to help others develop.
           </p>
-          <p>Here are the technologies I work with the most:</p>
-          <TechnologiesList>
+          <p data-aos="fade-right">
+            Here are the technologies I work with the most:
+          </p>
+          <TechnologiesList data-aos="fade-right">
             <li>JavaScript (ES6+)</li>
             <li>React</li>
             <li>TypeScript</li>

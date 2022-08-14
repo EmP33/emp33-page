@@ -105,14 +105,15 @@ const ResourcesSection = () => {
     <Container id="resource">
       <article>
         <div>
-          <h2>Resources</h2>
-          <p>
+          <h2 data-aos="fade-right">Resources</h2>
+          <p data-aos="fade-right">
             Here are the resources that I have used in my work and that I just
             like to use
           </p>
         </div>
         <Button
           variant="contained"
+          data-aos="fade-left"
           color="primary"
           size="large"
           sx={{ p: "10px 40px 10px 40px", letterSpacing: 2 }}
@@ -122,6 +123,7 @@ const ResourcesSection = () => {
         </Button>
       </article>
       <Box
+        data-aos="fade-up"
         sx={{
           display: "grid",
           margin: { xs: "12px", md: "32px 64px 0 64px" },
