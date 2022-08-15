@@ -12,6 +12,10 @@ const CertificateBlock = styled.div`
   margin: 0 0 32px 16px;
   user-select: none;
 
+  @media only screen and (max-width: 600px) {
+    margin: 0 0 32px 0;
+  }
+
   &:hover {
     animation: tilt-n-move-shaking 0.3s infinite;
   }
