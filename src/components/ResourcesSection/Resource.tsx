@@ -125,7 +125,7 @@ const Resource: React.FC<Props> = ({ resource }) => {
                 ? "#A10035"
                 : "#ab49de",
             letterSpacing: 2,
-            fontWeight: 100,
+            fontWeight: 400,
           }}
         >
           {resource.category.toUpperCase()}

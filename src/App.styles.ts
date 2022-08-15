@@ -14,9 +14,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        margin:0;
-        padding:0;
-        color:var(--color-white);
+        margin: 0;
+        padding: 0;
+        color: var(--color-white);
         font-family: 'Open Sans', sans-serif;
         background: var(--color-primary);
         scroll-behavior: smooth;

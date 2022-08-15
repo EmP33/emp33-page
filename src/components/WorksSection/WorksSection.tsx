@@ -10,7 +10,7 @@ const WorksSection = () => {
   const navigate = useNavigate();
   return (
     <Container>
-      <Box sx={{ width: "95%", marginLeft: "auto" }}>
+      <Box sx={{ width: "95%", marginLeft: { xs: 0, sm: "auto" } }}>
         <article>
           <div>
             <h2 data-aos="fade-right">My Portfolio</h2>

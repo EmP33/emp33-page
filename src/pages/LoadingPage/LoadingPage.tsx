@@ -41,6 +41,7 @@ const LoadingPage = () => {
           justifyContent: "center",
           flexDirection: "column",
           textAlign: "center",
+          overflow: "hidden",
         }}
       >
         <Typography

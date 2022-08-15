@@ -15,28 +15,32 @@ const Container = styled.div`
   width: 100%;
   overflow: hidden;
 
-  & > article {
+  & article {
     color: #fff;
     display: grid;
     grid-template-columns: 1fr max-content;
-    margin: 24px 64px 0 64px;
+    margin: 16px 64px 0 64px;
     justify-content: center;
     align-items: center;
 
-    @media only screen and (max-width: 600px) {
-      margin: 24px 12px 0 12px;
+    @media only screen and (max-width: 900px) {
       grid-template-columns: 1fr;
-      justify-items: start;
+      margin: 16px 12px 0 24px;
+      justify-items: left;
     }
 
     &:after {
       content: "Resources";
-      font-size: 150px;
+      font-size: 225px;
       font-weight: bold;
       position: absolute;
       right: 0;
       color: rgba(255, 255, 255, 0.1);
       z-index: -1;
+
+      @media only screen and (max-width: 1200px) {
+        font-size: 200px;
+      }
 
       @media only screen and (max-width: 900px) {
         content: "";
@@ -44,16 +48,23 @@ const Container = styled.div`
     }
 
     & > div {
-      width: 60%;
-      @media only screen and (max-width: 900px) {
-        width: 100%;
-      }
+      width: 95%;
     }
 
     & h2 {
-      font-size: 62px;
       margin: 0;
       padding: 0;
+      font-size: 62px;
+
+      @media only screen and (max-width: 600px) {
+        font-size: 48px;
+      }
+    }
+
+    & p {
+      @media only screen and (max-width: 600px) {
+        font-size: 16px;
+      }
     }
   }
 `;
@@ -135,7 +146,7 @@ const ResourcesSection = () => {
           columnGap: 5,
           rowGap: 3,
           justifyContent: "center",
-          p: 2,
+          p: { xs: 0, sm: 2 },
         }}
       >
         {displayResources.map((resource) => (

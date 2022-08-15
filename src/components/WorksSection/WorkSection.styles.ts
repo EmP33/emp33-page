@@ -15,7 +15,7 @@ export const Container = styled.div`
 
     @media only screen and (max-width: 900px) {
       grid-template-columns: 1fr;
-      margin: 16px 12px 0 12px;
+      margin: 16px 12px 0 24px;
       justify-items: left;
     }
 
@@ -45,6 +45,16 @@ export const Container = styled.div`
       margin: 0;
       padding: 0;
       font-size: 62px;
+
+      @media only screen and (max-width: 600px) {
+        font-size: 48px;
+      }
+    }
+
+    & p {
+      @media only screen and (max-width: 600px) {
+        font-size: 16px;
+      }
     }
   }
 `;

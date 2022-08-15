@@ -259,7 +259,11 @@ const Contact = () => {
             <Typography variant="body1">POLAND</Typography>
             <Typography variant="body1">purwinmarek16@gmail.com</Typography>
           </Box>
-          <img src={map} alt="mapa" style={{ pointerEvents: "none" }} />
+          <img
+            src={map}
+            alt="mapa"
+            style={{ pointerEvents: "none", height: "100%" }}
+          />
         </Grid>
       </Grid>
     </Container>
