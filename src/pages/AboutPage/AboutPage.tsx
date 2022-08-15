@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 // Store
@@ -29,7 +28,7 @@ const AboutPage = () => {
     setTimeout(() => {
       dispatch(uiActions.switchLoading(false));
     }, 2000);
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
     return <LoadingPage />;

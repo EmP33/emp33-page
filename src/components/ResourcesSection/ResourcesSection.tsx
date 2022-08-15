@@ -110,7 +110,7 @@ const ResourcesSection = () => {
           .slice(0, 12)
       );
     }
-  }, [resources]);
+  }, [resources, xsMatches, mediumMatches]);
 
   return (
     <Container id="resource">

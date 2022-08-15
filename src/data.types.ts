@@ -11,7 +11,8 @@ export interface ResourceType {
     | "Layout"
     | "Colors"
     | "Hosting"
-    | "Tools";
+    | "Tools"
+    | string;
   title: string;
   description: string;
   link: string;

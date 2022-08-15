@@ -12,6 +12,7 @@ const Work: React.FC<Props> = ({ work }) => {
   const navigate = useNavigate();
   return (
     <Box
+      data-testid={work.id}
       onClick={() => navigate(`/works/${work.id}`)}
       sx={{
         position: "relative",

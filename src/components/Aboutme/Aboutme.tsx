@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Spline from "@splinetool/react-spline";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 // Components
 import { Button, Grid } from "@mui/material";
 import Screen3D from "../UI/Screen3D";
