@@ -53,8 +53,8 @@ const AboutPage = () => {
           >
             <p data-aos="fade-up">
               Hello! My name is{" "}
-              <span style={{ color: "var(--color-text)" }}>Marek</span> and I am
-              passionate about creating things for Internet. My greatest
+              <span style={{ color: "var(--color-text)" }}> Marek</span> and I
+              am passionate about creating things for Internet. My greatest
               interest is in creating web applications that can also be useful
               to other people. I started my adventure in{" "}
               <span style={{ color: "var(--color-text)" }}>2019</span>, when I

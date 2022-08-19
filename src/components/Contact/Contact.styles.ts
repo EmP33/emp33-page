@@ -2,21 +2,24 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-
   overflow: hidden;
   padding-bottom: 30px;
+
+  @media only screen and (max-width: 900px) {
+    height: auto;
+  }
 
   & article {
     color: #fff;
     display: grid;
     grid-template-columns: 1fr max-content;
-    margin: 16px 64px 0 64px;
+
     justify-content: center;
     align-items: center;
 
     @media only screen and (max-width: 900px) {
       grid-template-columns: 1fr;
-      margin: 16px 12px 0 24px;
+
       justify-items: left;
     }
 

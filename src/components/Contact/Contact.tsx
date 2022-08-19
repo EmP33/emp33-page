@@ -93,23 +93,27 @@ const Contact = () => {
   };
   return (
     <Container>
-      <article>
-        <div>
-          <h2 data-aos="fade-right">Contact</h2>
-          <p data-aos="fade-right">
-            I’m interested in freelance opportunities – especially ambitious or
-            large projects. However, if you have other request or question,
-            don’t hesitate to use the form.
-          </p>
-        </div>
-      </article>
       <Grid container>
         <Grid
           item
           xs={12}
           md={6}
-          sx={{ p: { xs: 2, md: 5 }, mt: { xs: 1, md: 10 } }}
+          sx={{
+            p: { xs: 2, md: 3 },
+            display: "grid",
+            alignItems: "center",
+          }}
         >
+          <article>
+            <div>
+              <h2 data-aos="fade-right">Contact</h2>
+              <p data-aos="fade-right">
+                I’m interested in freelance opportunities – especially ambitious
+                or large projects. However, if you have other request or
+                question, don’t hesitate to use the form.
+              </p>
+            </div>
+          </article>
           <ContactForm ref={form} onSubmit={sendEmail}>
             <ul>
               <li className="half name-div">
@@ -243,7 +247,12 @@ const Contact = () => {
             </ul>
           </ContactForm>
         </Grid>
-        <Grid item xs={12} md={6} sx={{ postion: "relative" }}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ postion: "relative", overflow: "hidden" }}
+        >
           <Box
             sx={{
               position: "absolute",
@@ -258,11 +267,18 @@ const Contact = () => {
             <Typography variant="body1">POLAND</Typography>
             <Typography variant="body1">purwinmarek16@gmail.com</Typography>
           </Box>
-          <img
-            src={map}
-            alt="mapa"
-            style={{ pointerEvents: "none", height: "100%" }}
-          />
+          <Box sx={{ height: "100%", overflow: "hidden" }}>
+            <img
+              src={map}
+              alt="mapa"
+              style={{
+                pointerEvents: "none",
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+              }}
+            />
+          </Box>
         </Grid>
       </Grid>
     </Container>

@@ -79,7 +79,6 @@ const ResourceSidebar: React.FC<Props> = ({ resources }) => {
     count[resource.category] = (count[resource.category] || 0) + 1;
   });
 
-  console.log();
   return (
     <Container>
       <ul>
