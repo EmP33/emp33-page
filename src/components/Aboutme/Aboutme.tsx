@@ -180,7 +180,12 @@ const Aboutme = () => {
             <li>Firebase</li>
           </TechnologiesList>
         </Grid>
-        <Grid item xs={12} lg={7} sx={{ display: { xs: "none", lg: "block" } }}>
+        <Grid
+          item
+          xs={12}
+          lg={7}
+          sx={{ display: { xs: "none", lg: "block" }, mt: 20 }}
+        >
           <Screen3D />
         </Grid>
         <Grid

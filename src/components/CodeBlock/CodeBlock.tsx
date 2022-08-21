@@ -65,7 +65,7 @@ const CodeBlock = () => {
       </Box>
       <Box sx={{ p: "32px 5px 5px 32px", fontSize: 22 }}>
         <pre>
-          const marek = &#123;
+          const person = &#123;
           <br />
           &nbsp;name&#58; &#34;Marek&#34;&#44;
           <br />

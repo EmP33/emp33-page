@@ -13,13 +13,11 @@ export const Container = styled.div`
     color: #fff;
     display: grid;
     grid-template-columns: 1fr max-content;
-
     justify-content: center;
     align-items: center;
 
     @media only screen and (max-width: 900px) {
       grid-template-columns: 1fr;
-
       justify-items: left;
     }
 

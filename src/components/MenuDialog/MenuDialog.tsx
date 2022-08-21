@@ -109,22 +109,38 @@ const MenuDialog: React.FC<Props> = ({ handleClose, open }) => {
             <Grid item xs={12}>
               <SocialMedia>
                 <li>
-                  <a href="/#">
+                  <a
+                    href="https://www.instagram.com/marek_p1/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <IoLogoInstagram />
                   </a>
                 </li>
                 <li>
-                  <a href="/#">
+                  <a
+                    href="https://github.com/EmP33"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FiGithub />
                   </a>
                 </li>
                 <li>
-                  <a href="/#">
+                  <a
+                    href="https://www.facebook.com/marekpur2/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FaFacebookF />
                   </a>
                 </li>
                 <li>
-                  <a href="/#">
+                  <a
+                    href="https://codepen.io/endipl2"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <AiOutlineCodepen />
                   </a>
                 </li>

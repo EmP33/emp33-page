@@ -22,9 +22,10 @@ import { AiOutlineCodepen } from "react-icons/ai";
 import {
   Container,
   Header,
-  AnimatedHeading,
   SocialList,
   EmailWrapper,
+  SubHeading,
+  Heading,
 } from "./HomePage.styles";
 
 const dotsVariants = {
@@ -50,9 +51,9 @@ const HomePage = () => {
     }, 2000);
   }, []);
 
-  if (loading) {
-    return <LoadingPage />;
-  }
+  // if (loading) {
+  //   return <LoadingPage />;
+  // }
   return (
     <Container>
       <Appbar />
@@ -75,31 +76,39 @@ const HomePage = () => {
             position: "absolute",
             width: "100%",
             background: "rgba(41, 48, 64,0.9)",
-            padding: "40px",
+            padding: { xs: "40px 28px 40px 28px", sm: "40px" },
             borderRadius: "0 0 50% 50%",
             zIndex: 10,
           }}
         >
-          <Typography
-            variant="h1"
-            sx={{ fontWeight: "100", fontSize: "7.5vw", margin: "0 0 10px 0" }}
-          >
-            Marek Purwin
-          </Typography>
+          <Heading>
+            <span>M</span>
+            <span>a</span>
+            <span>r</span>
+            <span>e</span>
+            <span>k</span>
+            <span className="heading-space"></span>
+            <span>p</span>
+            <span>u</span>
+            <span>r</span>
+            <span>w</span>
+            <span>i</span>
+            <span>n</span>
+          </Heading>
           <Box
             sx={{
               fontWeight: "100",
-              fontSize: { xs: "14px", md: "16px", lg: "18px" },
+              fontSize: { xs: "17px", md: "19px", lg: "22px" },
               margin: 0,
               letterSpacing: 2,
+              textAlign: "center",
             }}
           >
-            <AnimatedHeading>
-              <span>F</span>
-              <span>ront</span>-<span>E</span>
-              <span>nd</span> <span>D</span>
-              <span>eveloper</span>
-            </AnimatedHeading>
+            <SubHeading>
+              Front-end developer
+              <span className="Mask">Front-end developer</span>
+              <span className="Mask">Front-end developer</span>
+            </SubHeading>
           </Box>
         </Box>
         <Grid
@@ -126,11 +135,12 @@ const HomePage = () => {
             <Box
               sx={{
                 zIndex: 11,
-                width: { xs: 150, sm: 150, md: 250, lg: 300, xl: 400 },
+                width: { xs: 250, sm: 200, md: 250, lg: 300, xl: 400 },
                 background: "var(--color-primary-light)",
                 borderRadius: "50%",
                 margin: "0 auto",
                 mt: 5,
+                mb: { xs: 5, md: 0 },
               }}
             >
               <img src={avatar} alt="avatar" style={{ width: "100%" }} />
