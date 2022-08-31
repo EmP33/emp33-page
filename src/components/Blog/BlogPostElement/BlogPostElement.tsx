@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import format from "date-fns/format";
 //Types
 import { PostType } from "../../../data.types";
@@ -10,8 +11,9 @@ interface Props {
 }
 
 const BlogPostElement: React.FC<Props> = ({ post }) => {
+  const navigate = useNavigate();
   return (
-    <Container>
+    <Container onClick={() => navigate(`/blog/${post.id}`)}>
       <p>
         Marek Purwin <span>{post.category}</span>
       </p>

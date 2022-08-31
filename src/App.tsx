@@ -15,11 +15,12 @@ import HomePage from "./pages/HomePage/HomePage";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import ResourcesPage from "./pages/ResourcesPage/ResourcesPage";
 import WorksPage from "./pages/WorksPage/WorksPage";
-// Types
-import { WorkType } from "./data.types";
+import BlogPostPage from "./pages/BlogPostPage/BlogPostPage";
+import WorkPage from "./pages/WorkPage/WorkPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
-import WorkPage from "./pages/WorkPage/WorkPage";
+// Types
+import { WorkType } from "./data.types";
 
 export const theme = createTheme({
   palette: {
@@ -53,6 +54,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:blogID" element={<BlogPostPage />} />
         </Routes>
       </AnimatePresence>
     </ThemeProvider>
