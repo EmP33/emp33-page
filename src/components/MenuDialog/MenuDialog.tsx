@@ -101,6 +101,9 @@ const MenuDialog: React.FC<Props> = ({ handleClose, open }) => {
                   <Link to="/about">About</Link>
                 </li>
                 <li>
+                  <Link to="/blog">Blog</Link>
+                </li>
+                <li>
                   <Link to="/contact">Contact</Link>
                 </li>
               </Navigation>

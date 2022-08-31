@@ -1,0 +1,27 @@
+import React from "react";
+import format from "date-fns/format";
+//Types
+import { PostType } from "../../../data.types";
+// Styles
+import { Container } from "./BlogPostElement.styles";
+
+interface Props {
+  post: PostType;
+}
+
+const BlogPostElement: React.FC<Props> = ({ post }) => {
+  return (
+    <Container>
+      <p>
+        Marek Purwin <span>{post.category}</span>
+      </p>
+      <h4>{post.title}</h4>
+      <p>
+        {format(new Date(post.date), "dd MMM yyyy")} &sdot; {post.readTime} min
+        read
+      </p>
+    </Container>
+  );
+};
+
+export default BlogPostElement;

@@ -109,6 +109,21 @@ const Appbar = () => {
                 About
               </NavLink>
             </motion.li>
+            <motion.li
+              custom={6}
+              variants={listVariant}
+              initial="hidden"
+              animate="visible"
+            >
+              <NavLink
+                to="/blog"
+                className={
+                  location.pathname.includes("/blog") ? "active-nav" : ""
+                }
+              >
+                Blog
+              </NavLink>
+            </motion.li>
           </>
         )}
       </ul>

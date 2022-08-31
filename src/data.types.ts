@@ -27,3 +27,12 @@ export interface WorkType {
   link: string;
   topics: string[];
 }
+
+export interface PostType {
+  id: number;
+  body: string;
+  date: number;
+  title: string;
+  category: string;
+  readTime: number;
+}

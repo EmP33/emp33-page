@@ -12,7 +12,7 @@ import GlobalStyle from "./App.styles";
 import { Route, Routes } from "react-router-dom";
 // Components
 import HomePage from "./pages/HomePage/HomePage";
-
+import BlogPage from "./pages/BlogPage/BlogPage";
 import ResourcesPage from "./pages/ResourcesPage/ResourcesPage";
 import WorksPage from "./pages/WorksPage/WorksPage";
 // Types
@@ -52,6 +52,7 @@ function App() {
           <Route path="/works/:workID" element={<WorkPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogPage />} />
         </Routes>
       </AnimatePresence>
     </ThemeProvider>

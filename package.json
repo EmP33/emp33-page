@@ -19,6 +19,7 @@
     "@types/styled-components": "^5.1.25",
     "@uiball/loaders": "^1.2.6",
     "aos": "^2.3.4",
+    "date-fns": "^2.29.2",
     "emailjs": "^4.0.0",
     "emailjs-com": "^3.2.0",
     "firebase": "^9.9.2",
