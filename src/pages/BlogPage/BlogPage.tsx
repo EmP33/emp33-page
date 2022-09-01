@@ -44,11 +44,9 @@ const BlogPage = () => {
     }, 2000);
   }, []);
 
-  //   if (loading) {
-  //     return <LoadingPage />;
-  //   }
-
-  console.log(posts);
+  if (loading) {
+    return <LoadingPage />;
+  }
 
   return (
     <Container>

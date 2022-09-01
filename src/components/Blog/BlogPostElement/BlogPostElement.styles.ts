@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const Container = styled.section`
+export const Container = styled(motion.section)`
   width: 100%;
   background: var(--color-primary-light);
   padding: 0.5rem 0.5rem 0.5rem 1rem;

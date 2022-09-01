@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+
 import { ref, onValue } from "firebase/database";
 import { database } from "../../firebase";
 import format from "date-fns/format";
 // Store
-import { useAppDispatch, useAppSelector } from "../../lib/hooks";
+import { useAppDispatch } from "../../lib/hooks";
 import { uiActions } from "../../store/uiSlice";
 // Components
 import Appbar from "../../components/Appbar/Appbar";
-import LoadingPage from "../LoadingPage/LoadingPage";
+
 // Type
 import { PostType } from "../../data.types";
 // Styles
@@ -19,7 +19,6 @@ const BlogPostPage = () => {
   const params = useParams();
   const dispatch = useAppDispatch();
   const [post, setPost] = useState<PostType | null>(null);
-  const loading = useAppSelector((state) => state.ui.loading);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,15 +34,10 @@ const BlogPostPage = () => {
     if (!post) setPost(data);
   });
 
-  // if (loading) {
-  //   return <LoadingPage />;
-  // }
-
-  console.log(post);
-
   return (
     <Container>
       <Appbar />
+
       <PostContainer>
         {post && (
           <>
@@ -58,10 +52,6 @@ const BlogPostPage = () => {
             <p dangerouslySetInnerHTML={{ __html: post?.body }}></p>
           </>
         )}
-
-        {/* {works.map((work: WorkType) => (
-          // <Work key={work.id} work={work} />
-        ))} */}
       </PostContainer>
     </Container>
   );
