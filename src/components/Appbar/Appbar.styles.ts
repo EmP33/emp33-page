@@ -57,4 +57,9 @@ export const IconButton = styled(motion.button)`
   justify-content: center;
   margin: 0 8px 0 8px;
   cursor: pointer;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 `;

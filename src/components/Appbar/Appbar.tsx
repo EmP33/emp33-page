@@ -3,12 +3,13 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import MenuDialog from "../MenuDialog/MenuDialog";
 // Styles
 import { NavContainer, IconButton } from "./Appbar.styles";
 // Icons
 import { IoSearchOutline } from "react-icons/io5";
 import { FaEnvelope } from "react-icons/fa";
-import MenuDialog from "../MenuDialog/MenuDialog";
+import { FiDownload } from "react-icons/fi";
 
 const listVariant = {
   hidden: {
@@ -146,6 +147,16 @@ const Appbar = () => {
           animate="visible"
         >
           <FaEnvelope />
+        </IconButton>
+        <IconButton
+          custom={6}
+          variants={listVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          <a href="https://drive.google.com/uc?export=download&id=1RQ7BaimIlqsjc2qPk5t8pyZ4rSoup-9x">
+            <FiDownload />
+          </a>
         </IconButton>
       </div>
       <MenuDialog handleClose={handleClose} open={open} />
