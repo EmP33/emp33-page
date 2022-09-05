@@ -149,7 +149,7 @@ const Appbar = () => {
           <FaEnvelope />
         </IconButton>
         <IconButton
-          custom={6}
+          custom={8}
           variants={listVariant}
           initial="hidden"
           animate="visible"
