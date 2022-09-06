@@ -9,7 +9,7 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 // Styles
 import GlobalStyle from "./App.styles";
 // Router
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 // Components
 import HomePage from "./pages/HomePage/HomePage";
 import BlogPage from "./pages/BlogPage/BlogPage";
@@ -55,6 +55,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:blogID" element={<BlogPostPage />} />
+          <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
       </AnimatePresence>
     </ThemeProvider>
