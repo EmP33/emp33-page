@@ -72,9 +72,11 @@ const BlogPage = () => {
             p: 2,
           }}
         >
-          {posts.map((post) => (
-            <BlogPostElement post={post} key={post.id} />
-          ))}
+          {posts
+            .sort((a, b) => b.date - a.date)
+            .map((post) => (
+              <BlogPostElement post={post} key={post.id} />
+            ))}
         </Box>
       </Box>
     </Container>
