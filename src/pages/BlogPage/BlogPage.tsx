@@ -71,7 +71,11 @@ const BlogPage = () => {
           {posts
             .sort((a, b) => b.date - a.date)
             .map((post) => (
-              <BlogPostElement post={post} key={post.id} />
+              <BlogPostElement
+                post={post}
+                key={post.id}
+                length={posts.length}
+              />
             ))}
         </Box>
       </Box>

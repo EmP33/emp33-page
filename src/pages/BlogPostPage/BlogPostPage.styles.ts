@@ -29,6 +29,11 @@ export const PostContainer = styled.div`
 
   & > p {
     margin: 0 0 5px 0;
+    word-break: break-all;
+
+    a {
+      color: var(--color-secondary);
+    }
 
     &:nth-child(2) {
       color: var(--color-text);

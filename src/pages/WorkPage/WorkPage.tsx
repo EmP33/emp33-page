@@ -16,6 +16,9 @@ const Container = styled.div`
   min-height: 100vh;
   width: 100%;
   margin: 0 auto;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  align-items: center;
 `;
 
 const TechnologiesList = styled.ul`
@@ -23,6 +26,10 @@ const TechnologiesList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   list-style: none;
   padding: 0;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   li {
     position: relative;
@@ -66,12 +73,16 @@ const WorkPage = () => {
             background: "var(--color-primary-dark)",
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "repeat(2,1fr)" },
-            position: "absolute",
-            top: "50%",
-            transform: "translateY(-50%)",
           }}
         >
-          <Box sx={{ gridRow: { xs: "2/3", md: "1/2" }, mt: { xs: 5, md: 0 } }}>
+          <Box
+            sx={{
+              gridRow: { xs: "2/3", md: "1/2" },
+              mt: { xs: 5, md: 0 },
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <img src={work.image} alt="work" style={{ width: "100%" }} />
           </Box>
           <Box sx={{ color: "var(--color-text)", pl: { xs: 1, sm: 4 } }}>
