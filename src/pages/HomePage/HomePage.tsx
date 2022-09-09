@@ -159,12 +159,18 @@ const HomePage = () => {
       </Box>
       <SocialList>
         <li>
-          <a href="https://github.com/EmP33" target="_blank" rel="noreferrer">
+          <a
+            aria-label="Navigate to Github"
+            href="https://github.com/EmP33"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FiGithub />
           </a>
         </li>
         <li>
           <a
+            aria-label="Navigate to Instagram"
             href="https://www.instagram.com/marek_p1/"
             target="_blank"
             rel="noreferrer"
@@ -174,6 +180,7 @@ const HomePage = () => {
         </li>
         <li>
           <a
+            aria-label="Navigate to Facebook"
             href="https://www.facebook.com/marekpur2/"
             target="_blank"
             rel="noreferrer"
@@ -182,7 +189,12 @@ const HomePage = () => {
           </a>
         </li>
         <li>
-          <a href="https://codepen.io/endipl2" target="_blank" rel="noreferrer">
+          <a
+            aria-label="Navigate to Codepen"
+            href="https://codepen.io/endipl2"
+            target="_blank"
+            rel="noreferrer"
+          >
             <AiOutlineCodepen />
           </a>
         </li>

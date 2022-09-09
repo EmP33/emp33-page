@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+
 import styled from "styled-components";
 import { ref, onValue } from "firebase/database";
 import { database } from "../../firebase";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+
 import { useAppDispatch, useAppSelector } from "../../lib/hooks";
 import { uiActions } from "../../store/uiSlice";
 // Components
 import Appbar from "../../components/Appbar/Appbar";
 import { Box } from "@mui/material";
-import Resource from "../../components/ResourcesSection/Resource";
-import ResourceSidebar from "../../components/ResourceSidebar/ResourceSidebar";
 // Types
 import { PostType } from "../../data.types";
 import LoadingPage from "../LoadingPage/LoadingPage";
@@ -24,7 +21,6 @@ const Container = styled.div`
 `;
 
 const BlogPage = () => {
-  const params = useParams();
   const dispatch = useAppDispatch();
   const loading = useAppSelector((state) => state.ui.loading);
 

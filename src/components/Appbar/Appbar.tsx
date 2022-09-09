@@ -131,6 +131,7 @@ const Appbar = () => {
 
       <div>
         <IconButton
+          aria-label="Show menu"
           onClick={handleClickOpen}
           custom={6}
           variants={listVariant}
@@ -140,6 +141,7 @@ const Appbar = () => {
           <IoSearchOutline />
         </IconButton>
         <IconButton
+          aria-label="Navigate to contact"
           onClick={() => navigate("/contact")}
           custom={7}
           variants={listVariant}
@@ -149,12 +151,16 @@ const Appbar = () => {
           <FaEnvelope />
         </IconButton>
         <IconButton
+          aria-label="Download CV"
           custom={8}
           variants={listVariant}
           initial="hidden"
           animate="visible"
         >
-          <a href="https://drive.google.com/uc?export=download&id=1RQ7BaimIlqsjc2qPk5t8pyZ4rSoup-9x">
+          <a
+            aria-label="Download CV"
+            href="https://drive.google.com/uc?export=download&id=1RQ7BaimIlqsjc2qPk5t8pyZ4rSoup-9x"
+          >
             <FiDownload />
           </a>
         </IconButton>
