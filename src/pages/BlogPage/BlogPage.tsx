@@ -23,7 +23,7 @@ const Container = styled.div`
 const BlogPage = () => {
   const dispatch = useAppDispatch();
   const loading = useAppSelector((state) => state.ui.loading);
-
+  const currentDate = new Date().getTime();
   const [posts, setPosts] = useState<PostType[]>([]);
 
   const postsRef = ref(database, "/blog");
@@ -69,6 +69,7 @@ const BlogPage = () => {
           }}
         >
           {posts
+            .filter((post) => post.date < currentDate)
             .sort((a, b) => b.date - a.date)
             .map((post) => (
               <BlogPostElement
