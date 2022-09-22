@@ -179,7 +179,7 @@ const AboutPage = () => {
             direction="right"
             year={2021}
             title="Udemy courses"
-            description="So in the summer I decided to get my knowledge together and started doing Udemy courses. Which gave me a lot of new knowledge, patched the patches in the previously known one, and reminded me of what I had already learned. Thus, in the following months, I was able to complete the courses, min. from the entire MERN stack, JS, CSS and SCSS, React, Typescript and I learned a lot of useful skills in the work of a front-end developer and gained theoretical knowledge, which I then regularly used in later projects such as webpack, styled-components, testing libraries."
+            description="So in the summer I decided to get my knowledge together and started doing Udemy courses. Which gave me a lot of new knowledge, patched the patches in the previously known one, and reminded me of what I had already learned. Thus, in the following months, I was able to complete the courses, incl. from the entire stack of MERN, JS, CSS and SCSS, React, Typescript and I learned a lot of useful skills in the work of a front-end developer and gained theoretical knowledge, which I then regularly used in later projects such as webpack, styled-components, testing libraries."
           />
           <TimelineBlock
             direction="left"
